@@ -12,7 +12,7 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: Tom Martin
+      title: tpgmartin.github.io
 
 description: Stylish Jekyll Theme
 author:
