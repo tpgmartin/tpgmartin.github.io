@@ -53,27 +53,30 @@ article .share .btn {
 }
 #contact-list li:hover .fa-twitter,
 article .share .twitter:hover {
-	color: #00ACEE;
+	color: #ed95c0;
 	border-color: #00ACEE;
 }
 #contact-list li:hover .fa-linkedin {
-	color: #1D87BD;
+	color: #ed95c0;
+}
+#contact-list li:hover .fa-github-alt {
+  color: #ed95c0;
 }
 #contact-list li:hover .fa-envelope {
-	color: #E93E30;
+	color: #ed95c0;
 }
 #contact-list li:hover .fa-pinterest {
-	color: #CC2127;
+	color: #ed95c0;
 }
 #contact-list li:hover .fa-rss {
-	color: #e74c3c;
+	color: #ed95c0;
 }
 article .share .facebook:hover {
-	color: #43609C;
+	color: #ed95c0;
 	border-color: #43609C;
 }
 article .share .gplus:hover {
-	color: #C13929;
+	color: #ed95c0;
 	border-color: #C13929;
 }
 
@@ -175,7 +178,7 @@ footer p {
 
 #nav-menu{
     position: fixed;
-    top: 45px;
+    top: 8px;
     right: 45px;
     z-index: 2000;
 }
