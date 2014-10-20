@@ -14,9 +14,9 @@ defaults:
     values:
       title: tpgmartin.github.io
 
-description: Stylish Jekyll Theme
+description: A blog on programming and things
 author:
-  name: tpgmartin.github.io
+  name: Tom Martin
   email: tpgmartin@gmail.com
   github: tpgmartin
   twitter: tpgmartin
