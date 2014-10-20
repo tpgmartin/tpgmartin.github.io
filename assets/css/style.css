@@ -82,6 +82,7 @@ article .share .gplus:hover {
 }
 
 .page-header {
+  padding-left: 5%;
 	color: #ed95c0;
 	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
