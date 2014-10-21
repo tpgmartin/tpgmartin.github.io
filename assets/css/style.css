@@ -96,7 +96,7 @@ article .share .gplus:hover {
   text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 360px) {
   .page-header {
     padding-left: 0;
   }
