@@ -96,7 +96,7 @@ article .share .gplus:hover {
   text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
 
-@media only screen and (max-device-width: 360px) {
+@media only screen and (max-device-width: 375px) {
   .page-header {
     padding-left: 0;
   }
@@ -159,8 +159,25 @@ footer {
 	font-family: 'Ubuntu';
 }
 
+/* desktop first */
 footer p {
   padding-left: 5%;
+}
+
+@media only screen and (max-device-width: 375px) {
+  footer p {
+    padding-left: 0;
+  }
+}
+
+.twitter, .facebook, .gplus {
+  margin-bottom: 5px;
+}
+
+@media only screen and (max-device-width: 375px) {
+  .twitter, .facebook, .gplus {
+    display: block;
+  }
 }
 
 /* nav-vertical-tabs component */
