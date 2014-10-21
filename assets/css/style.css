@@ -89,10 +89,17 @@ article .share .gplus:hover {
 	padding-bottom: 10px;
 }
 
+/* desktop first */
 .page-header {
   padding-left: 5%;
-	color: #ed95c0;
-	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+  color: #ed95c0;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+}
+
+@media only screen and (max-width: 360) {
+  .page-header {
+    padding-left: 0;
+  }
 }
 
 article{
