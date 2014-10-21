@@ -68,6 +68,10 @@ article .share .twitter:hover {
 	color: #ed95c0;
   border-color: #ccc;
 }
+#contact-list li:hover .fa-stack-overflow {
+  color: #ed95c0;
+  border-color: #ccc;
+}
 #contact-list li:hover .fa-pinterest {
 	color: #ed95c0;
   border-color: #ccc;

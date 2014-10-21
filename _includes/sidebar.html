@@ -46,6 +46,13 @@
 			</a>
 		</li>
 		{% endif %}
+		{% if site.author.stack-overflow %}
+		<li>
+			<a class="btn btn-default btn-sm" href="http://stackoverflow.com/users/{{ site.author.stack-overflow }}">
+				<i class="fa fa-stack-overflow fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
 		{% if site.author.linkedin %}
 		<li>
 			<a class="btn btn-default btn-sm" href="https://linkedin.com/pub/{{ site.author.linkedin }}">
