@@ -12,7 +12,7 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: tpgmartin.github.io
+      title: tpgmartin.com
 
 description: A blog on programming and things
 author:

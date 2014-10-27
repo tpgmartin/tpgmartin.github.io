@@ -1,4 +1,4 @@
-tpgmartin.github.io
+tpgmartin.com
 =====
 
 ## Overview
