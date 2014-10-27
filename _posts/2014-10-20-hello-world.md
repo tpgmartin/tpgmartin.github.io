@@ -4,6 +4,7 @@ comments: true
 title: Hello World!
 categories: [general, introduction]
 tags: [introduction]
+permalink: hello-world
 fullview: true
 ---
 

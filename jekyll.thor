@@ -19,6 +19,7 @@ class Jekyll < Thor
       post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
       post.puts "categories:"
       post.puts "tags:"
+      post.puts "permalink: \"#{title.downcase.gsub!(/\s/,'-')}\""
       post.puts "fullview: true"
       post.puts " -"
       post.puts "---"

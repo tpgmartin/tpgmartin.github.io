@@ -1,5 +1,6 @@
 GEM
   specs:
+    jekyll-sitemap (0.6.1)
     stringex (1.4.0)
     thor (0.19.1)
 
@@ -7,5 +8,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jekyll-sitemap
   stringex
   thor

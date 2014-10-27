@@ -26,6 +26,9 @@ author:
   bio: Junior developer, London, UK
   email_md5: 62be213366aa2bdd663069b3a0cfaf72
 
+gems:
+  - jekyll-sitemap
+
 rss_path: feed.xml
 categories_path: categories.html
 tags_path: tags.html
