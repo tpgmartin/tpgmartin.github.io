@@ -26,7 +26,7 @@
 		  {% assign categories_list = page.categories %}
 		  {% if categories_list.first[0] == null %}
 			{% for category in categories_list %} 
-				<li><a href="{{ site.BASE_PATH }}/{{ site.categories_path }}#{{ category }}-ref">
+				<li><a href="{{ site.BASE_PATH }}/{{ site.categories_path }}">
 					{{ category | join: "/" }} <span>({{ site.categories[category].size }})</span>
 					{% unless forloop.last %},{% endunless %}
 				</a></li>
@@ -48,7 +48,7 @@
 		  {% if tags_list.first[0] == null %}
 			{% for tag in tags_list %} 
 				<li>
-					<a href="{{ site.BASE_PATH }}/{{ site.tags_path }}#{{ tag }}-ref">
+					<a href="{{ site.BASE_PATH }}/{{ site.tags_path }}">
 					{{ tag }} <span>({{ site.tags[tag].size }})</span>
 					{% unless forloop.last %},{% endunless %}
 					</a>

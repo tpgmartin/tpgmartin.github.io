@@ -5,7 +5,7 @@ paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
 highlighter: true
 markdown: kramdown
-
+permalink: pretty
 
 defaults:
   -
@@ -30,7 +30,7 @@ gems:
   - jekyll-sitemap
 
 rss_path: feed.xml
-categories_path: categories.html
-tags_path: tags.html
+categories_path: categories
+tags_path: tags
 
 BASE_PATH:
