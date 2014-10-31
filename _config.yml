@@ -30,6 +30,7 @@ gems:
   - jekyll-sitemap
 
 rss_path: feed.xml
+about_path: about
 categories_path: categories
 tags_path: tags
 
