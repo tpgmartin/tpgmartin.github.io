@@ -13,10 +13,12 @@ Hopefully I'll be in a position to post actual factual content soon enough, so y
 In the meantime I thought it would be useful to list all the resources I've used so far to get my blog in the state you see it in now.
 
 Behind the scenes, I've added [Thor](http://jonasforsberg.se/2012/12/28/create-jekyll-posts-from-the-command-line) following pretty much the same steps as per the linked blog post. Pretty obviously, this speeds up my workflow just a bit: getting rid of the need to add all the front matter by hand. One issue that I came across was how best to create nice looking URLs for each blog post. I haven't found a definite answer so far, my solution was to add to my `jekyll.thor` file,
-  
-    ...
-    post.puts "permalink: \"#{title.downcase.gsub!(/\s/,'-')}\""
-    ...
+
+{% highlight ruby %}
+# Other code
+  post.puts "permalink: \"#{title.downcase.gsub!(/\s/,'-')}\""
+# More code
+{% endhighlight %}
 
 where title is the name I give the post from the command line. The permalink for each page will simply be constructed out of the title rather than the entire file name including the date. I'm using the [jekyll-sitemap](https://help.github.com/articles/sitemaps-for-github-pages/) gem to automatically generate a sitemap for SEO goodness. Finally, maybe stating the obvious, but I'm hosting using [GitHub Pages](https://pages.github.com/), for cost and ease of use with Github.
 
