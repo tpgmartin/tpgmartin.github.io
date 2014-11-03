@@ -4,7 +4,6 @@ comments: true
 title: Hello World!
 categories: [general, introduction]
 tags: [introduction]
-bitly: bit.ly/10jKqDq
 permalink: hello-world
 fullview: true
 ---
