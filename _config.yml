@@ -2,7 +2,7 @@
 
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num"
-exclude: ["README.md"] # files to exclude
+exclude: ["README.md", "jekyll.thor"] # files to exclude
 highlighter: pygments
 markdown: kramdown
 permalink: pretty
@@ -28,6 +28,15 @@ author:
 
 gems:
   - jekyll-sitemap
+
+sitemap:
+    file: "/sitemap.xml"
+    exclude:
+        - "/feed.xml"
+    include_posts:
+        - "/index.html"
+    change_frequency_name: "change_frequency"
+    priority_name: "priority"
 
 bitly:
   username: tpgmartin
