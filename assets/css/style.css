@@ -228,3 +228,9 @@ a, a:hover, a:focus {
   color: #ed95c0;
 }
 
+::selection {
+    background: #f4c1da;
+}
+::-moz-selection {
+    background: #f4c1da;
+}
