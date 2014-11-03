@@ -88,6 +88,10 @@ article .share .gplus:hover {
 	color: #ed95c0;
 	border-color: #ccc;
 }
+article .share .linkedin:hover {
+  color: #ed95c0;
+  border-color: #ccc;
+}
 
 #contact-list-secondary {
 	padding-bottom: 10px;
@@ -174,12 +178,12 @@ footer p {
   }
 }
 
-.twitter, .facebook, .gplus {
+.twitter, .facebook, .gplus, .linkedin {
   margin-bottom: 5px;
 }
 
 @media only screen and (max-device-width: 375px) {
-  .twitter, .facebook, .gplus {
+  .twitter, .facebook, .gplus, .linkedin {
     display: block;
   }
 }
