@@ -8,7 +8,7 @@ permalink: "creating-a-github-repo-from-a-cli"
 fullview: true
  -
 ---
-Having spent the past couple weeks wrestling with what to write about I've settled on this helpful tidbit. My constant need to refer to this basic workflow is some indication that (a) it's useful, and (b) I really ought to have better recall. Although there are helpful [command-line tools](https://hub.github.com/) out there that steamroll over much of what is to follow, I myself am in a bit of [Homebrew limbo](http://jcvangent.com/fixing-homebrew-os-x-10-10-yosemite/) and this is arguably more enlightening.
+Having spent the past couple weeks wrestling with what to write about I've settled on this helpful tidbit. My constant need to refer to this basic workflow is some indication that (a) it's useful, and (b) I really ought to have better recall. Although there are helpful [command-line tools](https://hub.github.com/) out there that steamroll over much of what is to follow, I myself am in a bit of [Homebrew limbo](http://jcvangent.com/fixing-homebrew-os-x-10-10-yosemite/), not to mention the following is arguably more enlightening.
 
 Aim of the game: Create a repo from a command-line interface and push the local repo to GitHub. This gives us that much more control in setting up the initial directory structure before starting out on a project. Having run a `git init` in our root directory and made our first commit we can get started.
 
