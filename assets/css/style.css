@@ -183,12 +183,6 @@ footer p {
   margin-bottom: 5px;
 }
 
-@media only screen and (max-device-width: 375px) {
-  .twitter, .facebook, .gplus, .linkedin {
-    display: block;
-  }
-}
-
 /* nav-vertical-tabs component */
 .nav-tabs-vertical {
     border-right: 1px solid #ed95c0;
