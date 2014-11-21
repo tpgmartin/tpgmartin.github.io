@@ -125,7 +125,7 @@ article {
 
 article.home div a, article.home pre a { color: #ed95c0; }
 article.home div a:hover, article.home pre a:hover { color: #ed95c0; text-decoration: none; }
-article img { max-width: 100%; }
+article img { max-width: 60%; }
 
 h1,h2,h3,h4,h5,h6 { font-family: 'Ubuntu', sans-serif; }
 article.home h1,
@@ -220,4 +220,9 @@ a, a:hover, a:focus {
 }
 ::-moz-selection {
     background: #f4c1da;
+}
+
+.center {
+  text-align: center;
+  margin: 20px 0;
 }
