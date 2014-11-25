@@ -48,14 +48,19 @@
 				<i class="fa fa-envelope"></i>
 			</a>
 			{% endif %}
+			{% if site.author.facebook %}
+			<a type="button" class="navbar-toggle nav-link" href="https://www.facebook.com/{{ site.author.facebook }}">
+				<i class="fa fa-facebook"></i>
+			</a>
+			{% endif %}
+			{% if site.author.google-plus %}
+			<a type="button" class="navbar-toggle nav-link" href="https://plus.google.com/{{ site.author.google-plus }}">
+				<i class="fa fa-google-plus"></i>
+			</a>
+			{% endif %}
 			{% if site.author.twitter %}
 			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/{{ site.author.twitter }}">
 				<i class="fa fa-twitter"></i>
-			</a>
-			{% endif %}
-			{% if site.author.github %}
-			<a type="button" class="navbar-toggle nav-link" href="http://github.com/{{ site.author.github }}">
-				<i class="fa fa-github"></i>
 			</a>
 			{% endif %}
 			<a class="navbar-brand" href="{{ site.BASE_PATH }}/">

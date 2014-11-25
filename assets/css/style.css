@@ -80,6 +80,10 @@ article .share .twitter:hover {
   color: #ed95c0;
   border-color: #ccc;
 }
+#contact-list li:hover .fa-youtube {
+  color: #ed95c0;
+  border-color: #ccc;
+}
 #contact-list li:hover .fa-pinterest {
 	color: #ed95c0;
   border-color: #ccc;
@@ -101,7 +105,7 @@ article .share .linkedin:hover {
   border-color: #ccc;
 }
 
-#contact-list-secondary {
+#contact-list-secondary, #contact-list-tertiary {
 	padding-bottom: 10px;
 }
 
