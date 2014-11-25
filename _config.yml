@@ -17,12 +17,16 @@ defaults:
 description: A blog on programming and things
 author:
   name: Tom Martin
+  twitter: tpgmartin
+  google-plus: 112326764922237690846
+  facebook: tpgmartin
   email: tom@tpgmartin.com
   github: tpgmartin
-  twitter: tpgmartin
-  stack-overflow: 3680722/tpgmartin
-  pinterest:
   linkedin: tpgmartin
+  stack-overflow: 3680722/tpgmartin
+  youtube: UCYRrmC7_3CUm-scefheGfnQ
+  instagram: tpgmartin
+  pinterest: tpgmartin
   bio: Junior developer, London, UK
   email_md5: 62be213366aa2bdd663069b3a0cfaf72
 

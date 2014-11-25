@@ -56,6 +56,14 @@ article .share .twitter:hover {
 	color: #ed95c0;
 	border-color: #ccc;
 }
+#contact-list li:hover .fa-google-plus {
+  color: #ed95c0;
+  border-color: #ccc;
+}
+#contact-list li:hover .fa-facebook {
+  color: #ed95c0;
+  border-color: #ccc;
+}
 #contact-list li:hover .fa-linkedin {
 	color: #ed95c0;
   border-color: #ccc;
