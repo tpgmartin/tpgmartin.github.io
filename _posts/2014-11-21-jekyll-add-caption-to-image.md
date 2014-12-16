@@ -2,8 +2,8 @@
 layout: post
 comments: true
 title: "Jekyll: Add Caption to Image"
-categories:
-tags:
+categories: ['tutorial', 'jekyll']
+tags: ['github', 'jekyll', 'images']
 permalink: "jekyll-add-caption-to-image"
 fullview: true
  -
