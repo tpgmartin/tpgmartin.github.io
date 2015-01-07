@@ -16,6 +16,7 @@ defaults:
 description: A blog on programming and things
 author:
   name: Tom Martin
+  disqus: tpgmartin-com
   twitter: tpgmartin
   google-plus: 112326764922237690846
   facebook: tpgmartin
