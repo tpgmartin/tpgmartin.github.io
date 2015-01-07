@@ -8,11 +8,10 @@ markdown: kramdown
 permalink: pretty
 
 defaults:
-  -
-    scope:
-      path: "" # empty string for all files
-    values:
-      title: tpgmartin.com
+  scope:
+  path: "" # empty string for all files
+  values:
+  title: tpgmartin.com
 
 description: A blog on programming and things
 author:
