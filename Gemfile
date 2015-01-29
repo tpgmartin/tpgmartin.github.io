@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 gem 'jekyll'
 gem 'jekyll-sitemap'
+gem 'guard-jekyll'
+gem 'guard-livereload'
 gem 'thor'
 gem 'stringex'
