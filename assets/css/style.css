@@ -7,7 +7,7 @@ body{
 .sidebar {
 	position: absolute;
 	top: 0px;
-	padding-top: 10%;
+	padding-top: 5%;
 	background-color: #ed95c0;
 	color: #fff;
 }
@@ -51,57 +51,66 @@ article .share .btn {
   -webkit-transition:color .2s ease-out, background 1s ease-in;
   transition:color .2s ease-out, background 1s ease-in;
 }
-#contact-list li:hover .fa-twitter,
+.btn-custom {
+  background: none;
+  border: none;
+  margin: 10px;
+}
+.btn-custom:hover {
+  background: none;
+  border: none;
+}
+#contact-list .fa-twitter,
 article .share .twitter:hover {
-	color: #ed95c0;
-	border-color: #ccc;
+	color: #333;
+	background-color: none;
 }
-#contact-list li:hover .fa-google-plus {
-  color: #ed95c0;
+#contact-list .fa-google-plus {
+  color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-facebook {
-  color: #ed95c0;
+#contact-list .fa-facebook {
+  color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-linkedin {
-	color: #ed95c0;
+#contact-list .fa-linkedin {
+	color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-github-alt {
-  color: #ed95c0;
+#contact-list .fa-github-alt {
+  color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-envelope {
-	color: #ed95c0;
+#contact-list .fa-envelope {
+	color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-stack-overflow {
-  color: #ed95c0;
+#contact-list .fa-stack-overflow {
+  color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-youtube {
-  color: #ed95c0;
+#contact-list .fa-youtube {
+  color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-pinterest {
-	color: #ed95c0;
+#contact-list .fa-pinterest {
+	color: #333;
   border-color: #ccc;
 }
-#contact-list li:hover .fa-rss {
-	color: #ed95c0;
+#contact-list .fa-rss {
+	color: #333;
   border-color: #ccc;
 }
 article .share .facebook:hover {
-	color: #ed95c0;
+	color: #333;
 	border-color: #ccc;
 }
 article .share .gplus:hover {
-	color: #ed95c0;
+	color: #333;
 	border-color: #ccc;
 }
 article .share .linkedin:hover {
-  color: #ed95c0;
+  color: #333;
   border-color: #ccc;
 }
 
@@ -137,7 +146,7 @@ article {
 
 article.home div a, article.home pre a { color: #ed95c0; }
 article.home div a:hover, article.home pre a:hover { color: #ed95c0; text-decoration: none; }
-article img { max-width: 60%; }
+article img { max-width: 40%; }
 
 h1,h2,h3,h4,h5,h6 { font-family: 'Ubuntu', sans-serif; }
 article.home h1,
@@ -233,7 +242,9 @@ a, a:hover, a:focus {
 ::-moz-selection {
     background: #f4c1da;
 }
-
+.fa-custom {
+  font-size: 60px !important;
+}
 .center {
   text-align: center;
   margin: 20px 0;
