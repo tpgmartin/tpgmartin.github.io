@@ -1,8 +1,12 @@
 <div class="page-header">
   {% if page.tagline %}
-  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+  <a href="{{ site.BASE_PATH }}/">
+    <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+  </a>
   {% else %}
-  <h1>{{ site.defaults.title }}</h1>
+  <a href="{{ site.BASE_PATH }}/">
+    <h1>{{ site.defaults.title }}</h1>
+  </a>
   {% endif %}
 </div>
 
