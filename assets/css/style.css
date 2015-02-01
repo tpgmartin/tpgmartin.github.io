@@ -60,33 +60,60 @@ article .share .btn {
   background: none;
   border: none;
 }
-#contact-list .fa-twitter,
-article .share .twitter:hover {
+#contact-list .fa-twitter {
 	color: #333;
 	background-color: none;
 }
+#contact-list .fa-twitter:hover {
+  color: #c7254e;
+  background-color: none;
+}
 #contact-list .fa-google-plus {
   color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-google-plus:hover {
+  color: #c7254e;
   border-color: #ccc;
 }
 #contact-list .fa-facebook {
   color: #333;
   border-color: #ccc;
 }
+#contact-list .fa-facebook:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
 #contact-list .fa-linkedin {
 	color: #333;
   border-color: #ccc;
 }
-#contact-list .fa-github-alt {
+#contact-list .fa-linkedin:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-github {
   color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-github:hover {
+  color: #c7254e;
   border-color: #ccc;
 }
 #contact-list .fa-envelope {
 	color: #333;
   border-color: #ccc;
 }
+#contact-list .fa-envelope:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
 #contact-list .fa-stack-overflow {
   color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-stack-overflow:hover {
+  color: #c7254e;
   border-color: #ccc;
 }
 #contact-list .fa-youtube {
@@ -101,16 +128,24 @@ article .share .twitter:hover {
 	color: #333;
   border-color: #ccc;
 }
+#contact-list .fa-rss:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+article .share .twitter:hover {
+  color: #ed95c0;
+  border-color: #ccc;
+}
 article .share .facebook:hover {
-	color: #333;
+  color: #ed95c0;
 	border-color: #ccc;
 }
 article .share .gplus:hover {
-	color: #333;
+  color: #ed95c0;
 	border-color: #ccc;
 }
 article .share .linkedin:hover {
-  color: #333;
+  color: #ed95c0;
   border-color: #ccc;
 }
 
