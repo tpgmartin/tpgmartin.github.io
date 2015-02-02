@@ -1,10 +1,10 @@
 ---
 layout: post
 comments: true
-title: "Maintaing Reusable Stylesheets: Overview of SMACSS"
+title: "Maintaining Reusable Stylesheets: Overview of SMACSS"
 categories:
 tags:
-permalink: "maintaing-reusable-stylesheets-overview-of-smacss"
+permalink: "maintaining-reusable-stylesheets-overview-of-smacss"
 fullview: true
  -
 ---
