@@ -193,7 +193,10 @@ article.home div a, article.home pre a { color: #ed95c0; }
 article.home div a:hover, article.home pre a:hover { color: #ed95c0; text-decoration: none; }
 article img { max-width: 40%; }
 
-h1,h2,h3,h4,h5,h6 { font-family: 'Ubuntu', sans-serif; }
+h1,h2,h3 { 
+  font-family: 'Ubuntu', sans-serif;
+  color: #ed95c0;
+}
 article.home h1,
 article.home h2,
 article.home h3,
