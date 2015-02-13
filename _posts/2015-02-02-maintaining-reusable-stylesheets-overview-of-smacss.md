@@ -2,8 +2,8 @@
 layout: post
 comments: true
 title: "Maintaining Reusable Stylesheets: Overview of SMACSS"
-categories:
-tags:
+categories: ['css', 'smacss']
+tags: ['css', 'smacss', 'introduction', 'overview']
 permalink: "maintaining-reusable-stylesheets-overview-of-smacss"
 fullview: true
  -
