@@ -227,6 +227,12 @@ article.home h4 a:hover {
   margin-right: 20px;
 }
 
+.author-bio {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42em;
+}
+
 footer {
 	padding-top: 15px;
 	font-family: 'Ubuntu';
