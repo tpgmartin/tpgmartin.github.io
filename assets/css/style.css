@@ -155,9 +155,11 @@ article .share .linkedin:hover {
 
 /* desktop first */
 .page-header {
-  padding-left: 5%;
+  padding-left: 25%;
   color: #ed95c0;
   text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+  margin: 20px 0 20px;
+  border-bottom: none;
 }
 .page-header a {
   text-decoration: none;
@@ -188,7 +190,7 @@ article a:hover {
 }
 
 article {
-	padding: 0 5% 0;
+	padding: 0 25% 0;
 }
 
 article.home div a, article.home pre a { color: #ed95c0; }

@@ -1,0 +1,33 @@
+<! -- header.html -->
+  <style>
+  .header {
+    display: block;
+    text-align: center;
+    background-color: #ed95c0;
+  }
+  .header-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .header-items {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 36px;
+    display: inline-block;
+    margin: 0 4%;
+  }
+  .header-items a, .header-items a:hover, .header-items a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+  </style>
+
+  <nav class="header hidden-xs">
+    <ul class="header-menu">
+      <li class="header-items"><a href="{{ site.BASE_PATH}}/">Home</a></li>
+      <li class="header-items"><a href="{{ site.BASE_PATH}}/{{ site.about_path }}">About</a></li>
+      <li class="header-items"><a href="{{ site.BASE_PATH}}/{{ site.cv_path }}">CV</a></li>
+    </ul>
+  </nav>
+
+<! -- header.html end -->
