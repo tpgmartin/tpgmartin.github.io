@@ -157,9 +157,13 @@ article .share .linkedin:hover {
 .page-header {
   padding-left: 25%;
   color: #ed95c0;
-  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
   margin: 20px 0 20px;
   border-bottom: none;
+}
+@media (max-width: 768px) {
+  .page-header {
+    padding-left: 30px;
+  }
 }
 .page-header a {
   text-decoration: none;
@@ -190,8 +194,15 @@ article a:hover {
 }
 
 article {
-	padding: 0 25% 0;
+	margin: 0 25%;
 }
+@media (max-width: 768px) {
+  article {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+.page
 
 article.home div a, article.home pre a { color: #ed95c0; }
 article.home div a:hover, article.home pre a:hover { color: #ed95c0; text-decoration: none; }
@@ -236,13 +247,17 @@ article.home h4 a:hover {
 }
 
 footer {
-	padding-top: 15px;
 	font-family: 'Ubuntu';
 }
 
 /* desktop first */
 footer p {
-  padding-left: 5%;
+  padding: 0 25%;
+}
+@media (max-width: 768px) {
+  footer p {
+    padding: 0 30px;
+  }
 }
 
 .twitter, .facebook, .gplus, .linkedin {
@@ -306,4 +321,15 @@ a, a:hover, a:focus {
 .center {
   text-align: center;
   margin: 20px 0;
+}
+
+/* Bootstrap customisation */
+.pager {
+  margin: 20px 25%;
+}
+@media (max-width: 768px) {
+  .pager {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
