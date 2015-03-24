@@ -4,26 +4,40 @@ body{
 	color: #2c3e50;
 }
 
-.sidebar {
-	position: absolute;
-	top: 0px;
-	padding-top: 5%;
-	background-color: #ed95c0;
-	color: #fff;
+.header {
+  display: block;
+  text-align: center;
+  background-color: #ed95c0;
 }
-
-.sidebar-header {
-	text-align: center;
-	margin-bottom: 10px;
+.header-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.sidebar-header .title{
-	letter-spacing: 3px;
-	text-transform: uppercase;
+.header-items {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 36px;
+  display: inline-block;
+  margin: 0 4%;
 }
-
-.sidebar-header .title a{
-	text-decoration: none;
-	color: #ed95c0;
+@media (max-width: 340px) {
+  .header-items {
+    margin: 0 3%;
+  }
+}
+@media (max-width: 320px) {
+  .header-items {
+    margin: 0 1%;
+  }
+}
+@media (max-width: 275px) {
+  .header-items {
+    margin: 0;
+  }
+}
+.header-items a, .header-items a:hover, .header-items a:focus {
+  color: #fff;
+  text-decoration: none;
 }
 
 a.nav-link {
