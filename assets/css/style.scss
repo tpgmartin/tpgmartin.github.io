@@ -1,0 +1,368 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
+
+body{
+  color: #2c3e50;
+}
+
+.header {
+  height: 6rem;
+  display: block;
+  background-color: #ed95c0;
+}
+.header-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 25%;
+  text-align: justify;
+}
+@media (max-width: 1200px) {
+  .header-menu {
+    margin: 0 17%;
+  }
+}
+@media (max-width: 768px) {
+  .header-menu {
+    margin: 0 30px;
+  }
+}
+.header-menu:after {
+  content: '';
+  width: 100%;
+  display: inline-block;
+}
+.header-items {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 36px;
+  display: inline-block;
+}
+
+.header-items a, .header-items a:hover, .header-items a:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+a.nav-link {
+  padding-bottom: 5px;
+  padding-top: 7px;
+  color: #ed95c0;
+}
+a.nav-link i{
+  font-size: 16px;
+}
+a.nav-link:hover { color: #ed95c0 }
+
+#bio {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#contact-list li .fa,
+article .share .btn {
+  -o-transition:color .2s ease-out, background 1s ease-in;
+  -ms-transition:color .2s ease-out, background 1s ease-in;
+  -moz-transition:color .2s ease-out, background 1s ease-in;
+  -webkit-transition:color .2s ease-out, background 1s ease-in;
+  transition:color .2s ease-out, background 1s ease-in;
+}
+.btn-custom {
+  background: none;
+  border: none;
+  margin: 10px;
+}
+.btn-custom:hover {
+  background: none;
+  border: none;
+}
+#contact-list .fa-twitter {
+  color: #333;
+  background-color: none;
+}
+#contact-list .fa-twitter:hover {
+  color: #c7254e;
+  background-color: none;
+}
+#contact-list .fa-google-plus {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-google-plus:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-facebook {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-facebook:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-linkedin {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-linkedin:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-github {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-github:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-envelope {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-envelope:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-stack-overflow {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-stack-overflow:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+#contact-list .fa-youtube {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-pinterest {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-rss {
+  color: #333;
+  border-color: #ccc;
+}
+#contact-list .fa-rss:hover {
+  color: #c7254e;
+  border-color: #ccc;
+}
+article .share .twitter:hover {
+  color: #ed95c0;
+  border-color: #ccc;
+}
+article .share .facebook:hover {
+  color: #ed95c0;
+  border-color: #ccc;
+}
+article .share .gplus:hover {
+  color: #ed95c0;
+  border-color: #ccc;
+}
+article .share .linkedin:hover {
+  color: #ed95c0;
+  border-color: #ccc;
+}
+
+#contact-list-tertiary {
+  padding-bottom: 10px;
+}
+
+/* desktop first */
+.page-header {
+  padding: 0 25%;
+  color: #ed95c0;
+  margin: 20px 0 20px;
+  border-bottom: none;
+}
+@media (max-width: 1200px) {
+  .page-header {
+    padding: 0 17%;
+  }
+}
+@media (max-width: 768px) {
+  .page-header {
+    padding: 0 30px;
+  }
+}
+.page-header a {
+  text-decoration: none;
+}
+
+article{
+  margin-bottom: 40px;
+}
+
+.article_body{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+p, li {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.75em;
+}
+article a:hover {
+  text-decoration: underline !important;
+}
+
+.post-date {
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+article {
+  margin: 0 25%;
+}
+@media (max-width: 1200px) {
+  article {
+    margin: 0 17%;
+  }
+}
+@media (max-width: 768px) {
+  article {
+    margin: 30px;
+  }
+}
+.page
+
+article.home div a, article.home pre a { color: #ed95c0; }
+article.home div a:hover, article.home pre a:hover { color: #ed95c0; text-decoration: none; }
+article img { max-width: 40%; }
+
+h1,h2,h3 { 
+  font-family: 'Ubuntu', sans-serif;
+  color: #ed95c0;
+}
+article.home h1,
+article.home h2,
+article.home h3,
+article.home h4,
+article.home h5,
+article.home h6 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #ed95c0;
+}
+
+article.home h1 a,
+article.home h2 a,
+article.home h3 a,
+article.home h4 a {
+  color: #ed95c0;
+}
+article.home h1 a:hover,
+article.home h2 a:hover,
+article.home h3 a:hover,
+article.home h4 a:hover {
+  color: #ed95c0;
+}
+
+.author .author-image {
+  float: left;
+  margin-right: 20px;
+}
+
+.author-bio {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42em;
+}
+
+footer {
+  font-family: 'Ubuntu';
+}
+
+/* desktop first */
+footer p {
+  padding: 0 25%;
+}
+@media (max-width: 1200px) {
+  footer p {
+    padding: 0 17%;
+  }
+}
+@media (max-width: 768px) {
+  footer p {
+    padding: 0 30px;
+  }
+}
+
+.twitter, .facebook, .gplus, .linkedin {
+  width: 23%;
+  margin-bottom: 5px;
+}
+
+/* nav-vertical-tabs component */
+.nav-tabs-vertical {
+    border-right: 1px solid #ed95c0;
+}
+
+.nav-tabs-vertical li {
+    margin-right: -1px;
+}
+
+.nav-tabs-vertical>li.active>a, .nav-tabs-vertical>li.active>a:hover, .nav-tabs-vertical>li.active>a:focus {
+    color: #ed95c0;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-right-color: transparent;
+}
+
+.nav-tabs-vertical>li>a {
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius: 4px 0 0 4px;
+}
+
+.badge { background: #ed95c0; }
+
+#nav-menu{
+    position: fixed;
+    top: 45px;
+    right: 45px;
+    z-index: 2000;
+}
+#nav-menu .dropdown-menu {
+    left: inherit;
+    right: 0px;
+}
+
+ul.dropdown-menu>li>a>i.fa {
+    width: 1.3em;
+}
+
+a, a:hover, a:focus {
+  color: #ed95c0;
+}
+
+::selection {
+    background: #f4c1da;
+}
+::-moz-selection {
+    background: #f4c1da;
+}
+.fa-custom {
+  font-size: 60px !important;
+}
+.center {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Bootstrap customisation */
+.pager {
+  margin: 20px 25%;
+}
+@media (max-width: 1200px) {
+  .pager {
+    margin: 0 17%;
+  }
+}
+@media (max-width: 768px) {
+  .pager {
+    margin: 0 30px;
+  }
+}
