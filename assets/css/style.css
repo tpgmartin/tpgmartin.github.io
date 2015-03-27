@@ -366,3 +366,18 @@ a, a:hover, a:focus {
     margin: 0 30px;
   }
 }
+.pager li>a, .pager li>span {
+  border: none;
+}
+.pager li>a:hover, .pager li>a:focus {
+  background-color: #fff;
+}
+.post.pager {
+  margin: 0;
+}
+.btn-default {
+  border: none;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
+  background-color: #fff;
+}
