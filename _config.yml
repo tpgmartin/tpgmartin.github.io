@@ -47,7 +47,7 @@ bitly:
   api_key: R_b3ee105c6fe74ae3895298489c72c468
 
 rss_path: feed.xml
-cv_path: tom-martin-cv.pdf
+cv_path: cv
 about_path: about
 categories_path: categories
 tags_path: tags
