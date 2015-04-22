@@ -74,7 +74,7 @@ Altogether we should get,
 </body>
 {% endhighlight %} 
 
-CSS counters are highly [customisable](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Counters, allowing you to specify the unit to increment/decrement the counters, and the number of counters changed at any one time.
+CSS counters are highly [customisable](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Counters), allowing you to specify the unit to increment/decrement the counters, and the number of counters changed at any one time.
 
 All the best,
 
