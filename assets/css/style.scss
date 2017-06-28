@@ -197,6 +197,10 @@ article a:hover {
 article {
 	margin: 0 auto;
 	max-width: 48em;
+
+  &.home {
+  margin: 5rem auto;
+  }
 }
 .page
 

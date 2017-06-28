@@ -186,6 +186,9 @@ article {
   margin: 0 auto;
   max-width: 48em; }
 
+article.home {
+  margin: 5rem auto; }
+
 .page article.home div a, article.home pre a {
   color: #ed95c0; }
 
