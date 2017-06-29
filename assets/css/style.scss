@@ -206,7 +206,7 @@ article {
 
 article.home div a, article.home pre a { color: #ed95c0; }
 article.home div a:hover, article.home pre a:hover { color: #ed95c0; text-decoration: none; }
-article img { max-width: 40%; }
+article img { max-width: 100%; }
 
 h1,h2,h3 { 
   font-family: 'Ubuntu', sans-serif;
@@ -244,6 +244,14 @@ article.home h4 a:hover {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42em;
+}
+
+table {
+  margin: 0 auto;
+}
+
+th {
+  padding: 1rem;
 }
 
 footer {

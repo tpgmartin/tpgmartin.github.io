@@ -197,7 +197,7 @@ article.home div a:hover, article.home pre a:hover {
   text-decoration: none; }
 
 article img {
-  max-width: 40%; }
+  max-width: 100%; }
 
 h1, h2, h3 {
   font-family: 'Ubuntu', sans-serif;
@@ -221,6 +221,12 @@ article.home h1 a:hover, article.home h2 a:hover, article.home h3 a:hover, artic
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42em; }
+
+table {
+  margin: 0 auto; }
+
+th {
+  padding: 1rem; }
 
 footer {
   font-family: 'Ubuntu';
