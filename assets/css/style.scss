@@ -247,11 +247,11 @@ article.home h4 a:hover {
 }
 
 table {
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 th {
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 }
 
 footer {
@@ -325,13 +325,14 @@ a, a:hover, a:focus {
 
 /* Bootstrap customisation */
 .pager {
-	margin: 0 auto;
-	max-width: 48em;
+  margin: 4rem 0 auto;
+  padding: 0 1rem;
+  max-width: 48em;
 }
 
 /* Mobile overrides */
 @media (max-width: 768px) {
   .mobile {
-    padding: 0 1rem;
+    padding: 2rem 1rem 0;
   }
 }

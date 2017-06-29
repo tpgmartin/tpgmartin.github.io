@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: 'Neural Networks from Scratch* Part 1: Building the Network'
-categories: ['css']
+categories: ['machine learning']
 tags: ['machine learning', 'neural networks', 'deep learning']
 permalink: 'neural-networks-from-scratch-part-1-building-the-network'
 fullview: true
@@ -15,7 +15,7 @@ This blog post and the next are to complement a talk I will give at [Infinitecon
 
 Before we get to any detail, it's probably worth reflecting on why deep learning has become such a hot topic in the industry. In a nutshell, deep learning has been shown to outperform more traditional machine learning approaches in a range of applications. In particular, very generic neural networks can be very powerful when it comes to complicated problems such as computer vision: a deep neural network with no specific instruction of its target domain can classify images effectively.
 
-Coming back to the learning problem at a very high level, ultimately we are simply trying to get the correct output for a given input. We are going to follow an approach that falls into the machine learning paradigm known as supervised learning. Initially, we train our network by giving it a set of training data with known inputs and outputs. During this process the network is expect to updated itself so it most closely produces the expected output for the given input. We will cover this in detail in the next blog post. Once we are satisfied with the network's training progress, we move to a test case. This is where we provide the network with inputs, without telling it upfront what the output should be. Ideally it should be able to match the expected output very closely, provided it has been adequately trained.
+Coming back to the learning problem at a very high level, ultimately we are simply trying to get the correct output for a given input. We are going to follow an approach that falls into the machine learning paradigm known as supervised learning. Initially, we train our network by giving it a set of training data with known inputs and outputs. During this process the network is expected to updated itself so it most closely produces the expected output for the given input - we will cover this in detail in the next blog post. Once we are satisfied with the network's training progress, we move to a test case. This is where we provide the network with inputs, without telling it upfront what the output should be. Ideally it should be able to match the expected output very closely, provided it has been adequately trained.
 
 I've used the word "learning" a few times already, but what do we mean exactly in this context? Simply put, we can think of "learning" as being the process of minimising the network error as it works through the training set. To accomplish this, the network will need to make some adjustments in response to an error calculation which we will cover in part 2. This can equivalently be thought of as a process of finding the correlation or relationship between the training data inputs.
 
@@ -34,7 +34,7 @@ We better start building our network. Let's begin by reviewing the example probl
 
 The XOR gate tells us that our output will only ever be 1 if our inputs are different. This is precisely why XOR has the longform name "exclusive or", we get a output of 1 if either A or B are 1 but not both.
 
-Given the logic table above, we can say that our input with be an array of length 2, with entries given by A and B respectively. Our output will simply be the integer either 1 or 0. Our training data follows from the logic table,
+Given the logic table above, we can say that our input with be an array of length 2, with entries given by A and B respectively. Our output will simply be the integer either 1 or 0. Our training data follows from the logic table, where `nj` is our import of `numjs`,
 
 {% highlight js %}
 const inputs = nj.array([
@@ -43,10 +43,11 @@ const inputs = nj.array([
     [1, 0],
     [1, 1]
 ])
+
 const outputs = nj.array([[0, 1, 1, 0]]).T
 {% endhighlight %}
 
-What should our network look like to reflect these inputs and outputs? The building block of a neural networks are nodes, these contain activation values our network produces at an arbitrary point in the network. These are basically the "neurons" of our network. The nodes are collected together in layers, such that each layer has common inputs and outputs. Given this information, we will have two layers, an input and an output layer, with the former made of two nodes, and the later just one. Putting this altogether, our network will look something like this,
+What should our network look like to reflect these inputs and outputs? The building block of a neural networks are nodes, these contain activation values that is values our network produces at an arbitrary point in the network. These are basically the "neurons" of our network. The nodes are collected together in layers, such that each layer has common inputs and outputs. Given this information, we will have two layers, an input and an output layer, with the former made of two nodes, and the later just one. Putting this altogether, our network will look something like this,
 
 {% include image.html url="/assets/media/multiple_inputs_to_single_output_with_weights.png" %}
 
@@ -58,7 +59,7 @@ let weightsInputOutput = nj.random([2, 1]).multiply(2).subtract(1)
 
 Moving forward, we will often make strange, seemingly arbitrary, choices amongst our parameters. - this is always for the same two reasons. First, we want to keep things as simple as we can for the sake of illustrative purposes. Secondly, we want to make choices to ensure our network learns as quickly as possible, or at least that we don't make the learning process more difficult than it needs to be. 
 
-Together the node values and weights allow us to calculate the value other nodes in the network. The values of A and B come from our training data, and given our weights we can find the value of O by taking the weighted sum of A and B. The network above would give the value for O in terms of A and B as,
+Together the node values and weights allow us to calculate the value of other nodes in the network, known as the activation. The values of A and B come from our training data, and given our weights we can find the value of O by taking the weighted sum of A and B. The network above would give the value for O in terms of A and B as,
 
 ```math
 O = 0.4 * A + 0.6 * B
@@ -69,6 +70,8 @@ This is true of an arbitrary number of weights and inputs. Instead of working ou
 ```math
 O = [A, B] • [0.4, 0.6]
 ```
+
+We will not do this explicitly in the code sample and instead rely on the implementation provided by`numjs`.
 
 At this point we have a working neural network! However, this will not be able to correctly match the XOR output. To do this, we will need to create a deep learning neural network. To walk through the reasons why, I will first introduce a logic gate that could be solved by our present network. The example being the AND gate, with the logic table below,
 
@@ -90,13 +93,13 @@ This graph gives the logic table where the inputs correspond to horizontal and v
 
 {% include image.html url="/assets/media/and_chart_with_boundary.png" %}
 
-Output that can be divided like this are called "linearly separable". This is a condition for a problem to be solvable by a linear neural network. Thinking in terms of the inputs instead, given that a linear neural network can produce the correct output implies that exists a correlation between the input nodes. It not really important to go into this in any more detail, but bearing this result in mind we can return to the XOR gate. Unlike the AND gate, the XOR gate cannot be solved by a linear neural network precisely because the output is not linearly separable. This point is better illustrated by a graph like the one given for the AND gate,
+Output that can be divided like this are called "linearly separable". This is a condition for a problem to be solvable by a linear neural network. Thinking in terms of the inputs instead, given that a linear neural network can produce the correct output implies that exists a correlation between the input nodes that our current neural network correctly captures. It not really important to go into this in any more detail, but bearing this result in mind we can return to the XOR gate. Unlike the AND gate, the XOR gate cannot be solved by a linear neural network precisely because the output is not linearly separable. This point is better illustrated by a graph like the one given for the AND gate,
 
 {% include image.html url="/assets/media/xor_chart.png" %}
 
 You should be able to eyeball it: we cannot find a single linear dividing boundary between the 0 and 1 outputs.
 
-Moving on from this result, we need to add something else to our network to make it work for an XOR gate: we need to introduce nonlinear behaviour. We need to start by adding other layers of nodes between the input and output layers. This is known as a hidden layer, and is useful to create intermediate correlations from our input nodes. In this context, correlation simply means some combination of nodes that produces some new node value. As with other choices we've made for our network so far, we are going to go with the simplest choice possible. In this case, we'll add a single hidden layer with three nodes. Our network now looks like this,
+Moving on from this result, we need to add something else to our network to make it work for an XOR gate: we need to introduce nonlinear behaviour. We need to start by adding other layers of nodes between the input and output layers. This is known as a hidden layer, and is used to create intermediate correlations from our input nodes. In this context, correlation simply means some combination of nodes that produces a new activation. As with other choices we've made for our network so far, we are going to go with the simplest choice possible. In this case, we'll add a single hidden layer with three nodes. Our network now looks like this,
 
 {% include image.html url="/assets/media/three_layer_network.png" %}
 
