@@ -232,8 +232,6 @@ for (let iteration = 0; iteration < 1; iteration++) {
         inputHiddenWeights = nj.subtract(inputHiddenWeights, inputLayer.T.dot(hiddenLayerDelta).multiply(alpha))
     }
  
-    // Logging to console
- 
 }
 {% endhighlight %}
 
@@ -241,7 +239,7 @@ for (let iteration = 0; iteration < 1; iteration++) {
 
 We've covered a lot of material in these two blog posts. Taking it from the top, we chose a learning problem, the XOR logic gate, and matched it to a deep learning neural network. We were able to justify our choices for the network such as the error function and other parameters. Having done all this we worked through a single iteration of the backpropagation algorithm to demonstrate how we would update our network weights by adjusting the weights. Hopefully, this goes someway to demonstrate how deep learning neural networks work from the ground up, and how the choice of learning problem influences the choices we make.
 
-The full code sample is available as a [gist](https://gist.github.com/tpgmartin/e3c81565f2a161d7fd2370c2ea870cad). If you have any other question please get in touch.
+Coming to the end of this series we have a complete network, which will be able to train correctly for the XOR learning problem. The full code sample is available as a [gist](https://gist.github.com/tpgmartin/e3c81565f2a161d7fd2370c2ea870cad). If you have any other questions please get in touch.
 
 ## References
 
