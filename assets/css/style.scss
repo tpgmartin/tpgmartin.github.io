@@ -336,7 +336,7 @@ a, a:hover, a:focus {
 
 /* Mobile overrides */
 @media (max-width: 768px) {
-  .mobile {
+  .page-header, .mobile {
     padding: 0 1rem 0;
   }
 }
