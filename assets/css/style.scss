@@ -200,6 +200,10 @@ article {
 
   &.home {
   margin: 5rem auto;
+
+    &:nth-of-type(1) {
+      margin: 0 auto;
+    }
   }
 }
 .page
@@ -333,6 +337,6 @@ a, a:hover, a:focus {
 /* Mobile overrides */
 @media (max-width: 768px) {
   .mobile {
-    padding: 2rem 1rem 0;
+    padding: 0 1rem 0;
   }
 }

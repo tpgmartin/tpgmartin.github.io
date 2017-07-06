@@ -189,6 +189,9 @@ article {
 article.home {
   margin: 5rem auto; }
 
+article.home:nth-of-type(1) {
+  margin: 0; }
+
 .page article.home div a, article.home pre a {
   color: #ed95c0; }
 
@@ -297,4 +300,4 @@ a, a:hover, a:focus {
 /* Mobile overrides */
 @media (max-width: 768px) {
   .mobile {
-    padding: 2rem 1rem 0; } }
+    padding: 0 1rem 0; } }
