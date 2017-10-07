@@ -9,13 +9,9 @@ fullview: true
  -
 ---
 
-[Pandas](http://pandas.pydata.org/) is a powerful data analyis Python library. Pandas is not the sole choice within the Python data analysis ecosystem, with a notable example being Numpy. However, Numpy is not very well suited for handling large tabular datasets of mixed types. Pandas itself is built on top of Numpy, so still has the conveniences of Numpy with added abilities. In this blog post, I want to review some of the key concepts that set Pandas apart from Numpy.
+[Pandas](http://pandas.pydata.org/) is a powerful Python library data analyis. Pandas is not the sole choice within the Python data analysis ecosystem, with a notable example being Numpy. However, Numpy is not very well suited for handling large tabular datasets of mixed types. Pandas itself is built on top of Numpy, so still has the conveniences of Numpy with added abilities. In this blog post, I want to review some of the key concepts that set Pandas apart from Numpy.
 
-For the purpose of illustration, we will be using a the ["Daily Show Guests" dataset](https://github.com/fivethirtyeight/data/tree/33b01e4a37911fff33f1e8afa9bc01a8d3698d8b/daily-show-guests) from the FiveThirtyEigth repo.
-
-## 0. What is a DataFrame Object?
-
-A DataFrame can be thought of as essentially a list of lists, but unlike a regular Numpy array a Pandas DataFrame can  
+The mainstay of an Pandas program is a data structure known as a DataFrame. A DataFrame can be thought of as essentially a list of lists, but unlike a regular Numpy array a Pandas DataFrame can  
 
 1. Contain multiple data types,
 2. Support non-numeric indices,
@@ -23,7 +19,7 @@ A DataFrame can be thought of as essentially a list of lists, but unlike a regul
 
 The remainder of this post will look at each of these in turn.
 
-We can create a DataFrame by reading in the CSV file,
+For the purpose of illustration, we will be using a the ["Daily Show Guests" dataset](https://github.com/fivethirtyeight/data/tree/33b01e4a37911fff33f1e8afa9bc01a8d3698d8b/daily-show-guests) from the FiveThirtyEigth repo. We can create a DataFrame by reading in the CSV file,
 
 {% highlight python %}
 import pandas as pd
@@ -31,7 +27,7 @@ import pandas as pd
 daily_show_guests = pd.read_csv('daily_show_guests.csv')
 {% endhighlight %}
 
-DataFrames themselves are made up of another Pandas object known as Series, which is how Pandas represents the individual columns in a DataFrame and in turn, Series objects are wrappers around Numpy arrays. Querying a DataFrame object by column name will return a Series object.
+DataFrames themselves are made up of another Pandas object known as Series, which is how Pandas represents the individual columns in a DataFrame. Series objects themselves are wrappers around Numpy arrays. Querying a DataFrame object by column name will return a Series object.
 
 ## 1. Multiple Data Types
 
@@ -71,15 +67,16 @@ daily_show_guests.index #=> Returns
 #      dtype='object', name='Show', length=2693)
 {% endhighlight %}
 
-We specifiy the `drop=False` attribute, as we don't want to delete the 'Show' column after setting our custom index.
+We specifiy the `drop=False` attribute, as we don't want to delete the "Show" column after setting our custom index.
 
-Even if we specify a custom index on a DataFrame, we still retain the original integer index so can use any either as a means of filtering. Either way, we have three ways of filtering a DataFrame by rows or columns
+Even after sepcifying a custom index on a DataFrame, we still retain the original integer index so can use any either as a means of filtering. Either way, we have three ways of filtering a DataFrame by rows or columns
 
 * DataFrame.iloc - integer based indexing
 * DataFrame.loc - label based indexing
 * Python slice range
 
 {% highlight python %}
+# Equivalent filtering methods
 daily_show_guests.iloc[0:10]
 daily_show_guests.loc["1/11/99":"1/26/99"]
 daily_show_guests["1/11/99":"1/26/99"]
