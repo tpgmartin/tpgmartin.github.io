@@ -9,7 +9,7 @@ fullview: true
  -
 ---
 
-[Pandas](http://pandas.pydata.org/) is a powerful Python library data analyis. Pandas is not the sole choice within the Python data analysis ecosystem, with a notable example being Numpy. However, Numpy is not very well suited for handling large tabular datasets of mixed types. Pandas itself is built on top of Numpy, so still has the conveniences of Numpy with added abilities. In this blog post, I want to review some of the key concepts that set Pandas apart from Numpy.
+[Pandas](http://pandas.pydata.org/) is a powerful Python library for data analyis. Pandas is not the sole choice within the Python data analysis ecosystem, with a notable example being Numpy. However, Numpy is not very well suited for handling large tabular datasets of mixed types. Pandas itself is built on top of Numpy, so still has the conveniences of Numpy with added abilities. In this blog post, I want to review some of the key concepts that set Pandas apart from Numpy.
 
 The mainstay of an Pandas program is a data structure known as a DataFrame. A DataFrame can be thought of as essentially a list of lists, but unlike a regular Numpy array a Pandas DataFrame can  
 
@@ -27,7 +27,7 @@ import pandas as pd
 daily_show_guests = pd.read_csv('daily_show_guests.csv')
 {% endhighlight %}
 
-DataFrames themselves are made up of another Pandas object known as Series, which is how Pandas represents the individual columns in a DataFrame. Series objects themselves are wrappers around Numpy arrays. Querying a DataFrame object by column name will return a Series object.
+DataFrames themselves are made up of another Pandas object known as Series objects, which is how Pandas represents the individual columns in a DataFrame. Series objects themselves are wrappers around Numpy arrays. Querying a DataFrame object by column name will return a Series object.
 
 ## 1. Multiple Data Types
 
@@ -44,7 +44,7 @@ daily_show_guests.dtypes
 # dtype: object
 {% endhighlight %}
 
-The above response might initially be confusing if you look at the CSV file, and highlights a subtlety we face when using Pandas. For instance, why do entries of the "Group" column have an `object` type? This is a consequence of Pandas dependency on Numpy: these are in fact Numpy objects not Python strings, and this is how Pandas represents strings of arbitrary length.
+The above response might initially be confusing if you look at the CSV file, and highlights a subtlety we face when using Pandas. For instance, why do entries of the "Group" column have an `object` type? This is a consequence of Pandas dependency on Numpy: these `object` types are in fact Numpy objects and this is how Pandas represents strings of arbitrary length, rather than use Python strings.
 
 As we will see in section 3, being able to support mutiple types has important consequences for how we can handle "missing values".
 
@@ -84,7 +84,7 @@ daily_show_guests["1/11/99":"1/26/99"]
 
 ## 3. Handling Missing Values
 
-Firstly, what exactly do we mean by a missing value? Put simply, a missing value is any value that is not present in the data. Seems easy, right? However, in the Python programming language a missing value can be represented by either a `None` object type value or `nan` float. This means that conceivably a "missing value" can be mapped to two distinct types, which may have all kinds of unintended consequences if we’re not careful. To take an example from [this excellent blog post](https://www.oreilly.com/learning/handling-missing-data) on the topic,
+Firstly, what exactly do we mean by a "missing value"? Put simply, a missing value is any value that is not present in the data. Seems easy, right? However, in the Python programming language a missing value can be represented by either a `None` object type value or `nan` float. This means that conceivably a missing value can be mapped to two distinct types, which may have all kinds of unintended consequences if we’re not careful. To take an example from [this excellent blog post](https://www.oreilly.com/learning/handling-missing-data) on the topic,
 
 {% highlight python %}
 np.array([1, None, 3, 4]).sum() #=> Returns TypeError
@@ -92,7 +92,7 @@ np.array([1, None, 3, 4]).sum() #=> Returns TypeError
 np.array([1, np.nan, 3, 4]).sum() #=> Returns nan
 {% endhighlight %}
 
-Instead of dealing with this messiness we can instead rely on Pandas to handle our missing values. Pandas treats `None` and `nan` interchangeably, and performs the necessary type casting behind the scenes, all we have to do is decide on some identifier for missing values. In the "Daily Show Guests" dataset, we have used the string "NA" to mark missing values.
+Instead of dealing with this messiness we can instead rely on Pandas to handle our missing values. Pandas treats `None` and `nan` interchangeably, and performs the necessary type casting behind the scenes, all we have to do is decide on some identifier for missing values. In the "Daily Show Guests" dataset, the string "NA" is used to mark missing values.
 
 Pandas also gives us a set of methods we can call on our Series or DataFrame objects to deal with missing values. For example if we want to find rows with missing values we can call `isnull()` on the DataFrame, and then drop the rows with missing values.
 
@@ -103,7 +103,7 @@ good_results = daily_show_guests.dropna()
 good_results.isnull().values.any() #=> Returns False
 {% endhighlight %}
 
-Although this mean that we’re losing data this might be acceptable if we're just interested in high-level correlations. If we want to be more careful we could replace missing values with something else using the `fillna()` method.
+Although this means we’re losing data, this might be acceptable if we're just interested in high-level correlations. If we want to be more careful we could replace missing values with something else using the `fillna()` method.
 
 All the best,
 
