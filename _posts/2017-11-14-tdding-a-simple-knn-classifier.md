@@ -108,7 +108,7 @@ def test_KNN_should_be_initialised_with_n_neighbors():
 
 And we should have a green test. 
 
-We've now completed our first successful cycle of TDD, and the rest is wash and repeat. Our next test should allow us to bootstrap our classifier by calling the `fit()` method. This allows us to pass in training data and training labels, `X_train` and `y_train` respectively. To test this, we need to specify some mock data corresponding to these values in addition to calling the classifier. The mock data could be anything though so long as it is truthy - I've tried to mimick the structure of the iris data set of four features per input. The updated test file is below with the previous test case omitted for clarity.
+We've now completed our first successful cycle of TDD, the rest is wash and repeat. Our next test should allow us to bootstrap our classifier by calling the `fit()` method. This allows us to pass in training data and training labels, `X_train` and `y_train` respectively. To test this, we need to specify some mock data corresponding to these values in addition to calling the classifier. The mock data could be anything though so long as it is truthy. For our purposes though, I've tried to mimick the structure of the iris data set of four features per input. The updated test file is below with the previous test case omitted for clarity.
 
 {% highlight python %}
 # test.py
@@ -143,7 +143,7 @@ class KNN():
         self.y_train = y_train
 {% endhighlight %}
 
-We get to green once again. Now we come to actually prediction the label. Starting more simply this time, let's write out a single test case following the API above,
+We get to green once again. Now we come to actually predicting the label. Starting more simply this time, let's write out a single test case following the API above,
 
 {% highlight python %}
 #test.py
@@ -160,7 +160,7 @@ def test_predict_should_return_label_for_test_data():
     assert predictions == y_test
 {% endhighlight %}
 
-In addition to the mock data previously defined, we have the test data `X_test` and `y_test`. The simple fix is to define `predict()` and return a hardcoded value
+In addition to the mock data previously defined, we have the test data `X_test` and `y_test`, which are the test inputs and the correct label respectively. The simple fix is to define `predict()` and return a hardcoded value
 
 {% highlight python %}
 # main.py
@@ -194,11 +194,11 @@ I'll come to explain the precise arrangement later on, but now we have multiple 
 
 * Initialise variables to keep track of the smallest distance and corresponding index for the row in the training data
 * Then iterate through the training data
-* For given row in training data find the distance between that row and `X_test`
-* If newly calculated distance is smaller than current smallest distance then then update both the smallest distance and the corresponding index
-* Having gone through all the training data, return the label corresponding closest index
+* For a given row in training data find the distance between that row and `X_test`
+* If the newly calculated distance is smaller than current smallest distance then update both the smallest distance and the corresponding index
+* Having gone through all the training data, return the label corresponding to the closest index
 
-The final piece of the puzzle is how we will calculate the distance between two rows, which as we said above with be given by the Euclidean distance. Rather than do this from scratch we will import the `distance` module from the SciPy library. Putting this all together we should get the following.
+The final piece of the puzzle is how we will calculate the distance between two rows, which as we said above with be given by the Euclidean distance. Rather than do this from scratch we will import the `distance` module from the SciPy library. Putting this altogether we should get the following.
 
 {% highlight python %}
 # main.py
@@ -253,13 +253,13 @@ This is the complete implementation of our KNN classifier where `n_neigbors` is 
 
 ## KNN Implementation
 
-Now we want to generalise the classifier where `n_neighbors` is some odd number greater than or equal to one (odd to prevent ties). Having tests in place makes this process much easier as we can always backtrack if we break some functionality. Before going any further, we should add some test cases - we want to follow the philosophy of testing requirements not specific examples, or in other words a single test should run with a number of different parameters. Pytest terms this a 'parametrizing' test functions:
+Now we want to generalise the classifier where `n_neighbors` is some odd number greater than or equal to one (odd to prevent ties). Having tests in place makes this process much easier as we can always backtrack if we break some functionality. Before going any further, we should add some test cases - we want to follow the philosophy of testing requirements not specific examples, or in other words a single test should run with a number of different parameters. Pytest terms this 'parametrizing' test functions:
 
 {% highlight python %}
 # test.py
-import pytest
-from main import KNN
+# ... other code ...
 
+X_test = [[0, 0, 0, 0]]
 @pytest.mark.parametrize(('n_neighbors'),[1,3,5])
 def test_KNN_should_be_initialised_with_n_neighbors(n_neighbors):
     clf = KNN(n_neighbors)
@@ -275,11 +275,7 @@ The algorithm will be as follows,
 2. For this distances, find the k smallest values, where k is given by `n_neighbors`
 3. For these k values, return the most common, this is the predicted label
 
-Before we get to the implementation, we need to set up the tests. We need to parameterise both `n_neighbors` and `y_test` - the predicted label. Why's that? Well first, think about what the new algoritm does: it returns the most commonly occuring value from a set of values.
-
-(The following two paragraphs can be skipped as they are not critical to understanding the rest of the blog, but just explain my thought process for how I structured the tests in some detail.)
-
-What might not be clear is what that means for us given that I want to keep `X_train` and `y_train` unchanged, which are repeated below.
+Before we get to the implementation, we need to set up the tests. We need to parameterise both `n_neighbors` and `y_test` - the predicted label. Why's that? Well first, think about what the new algoritm does: it returns the most commonly occuring value from a set of values. What might not be clear is what that means for us given that I want to keep `X_train` and `y_train` unchanged, which are repeated below.
 
 {% highlight python %}
 X_train = [
@@ -294,9 +290,9 @@ X_train = [
 y_train = [0, 1, 1, 2, 2, 2, 2]
 {% endhighlight %}
 
-If we take the k smallest distances between `X_test` and the rows in `X_train`, then the might find ourselves with a tie - something I don't want to consider for the sake of simplicity. Considering odd values for `n_neighbors` only for `X_test = [[0, 0, 0, 0]]`, then if `n_neighbors = 1`, our predicted label should be `0` as this is the label of the single row with the smallest distance from `X_test`. For `n_neighbors = 3`, we should instead get a predicted label of `1`. That is because although row `[0, 0, 0, 0]` has the single smallest distance, of the three rows with the smallest distance `[[0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 1]]`, two of the three have the label `1`. Moving to `n_neighbors = 5` is where things get difficult, because for our `X_train` the five rows with smallest distances will have labels `[0, 1, 1, 2, 2]` leading to a tie. This is precisely what I don't want! So if I'm commited to keeping `X_train` and `y_train` constant the best thing to do is skip `n_neighbors = 5` and instead consider `n_neighbors = 7`. That is simply because for the given `X_train` and `y_Train` above, I can get an absolute majority from the labels `[0, 1, 1, 2, 2, 2, 2]`.
+If we take the k smallest distances between `X_test` and each of the rows in `X_train`, then we might find ourselves with a tie - something I don't want to consider for the sake of simplicity. Considering odd values for `n_neighbors` only for `X_test = [[0, 0, 0, 0]]`, then if `n_neighbors = 1`, our predicted label should be `0` as this is the label of the single row with the smallest distance from `X_test`. For `n_neighbors = 3`, we should instead get a predicted label of `1`. That is because although row `[0, 0, 0, 0]` has the single smallest distance, of the three rows with the smallest distance `[[0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 1]]`, two of the three have the label `1`. Moving to `n_neighbors = 5` is where things get difficult, because for our `X_train` the five rows with smallest distances will have labels `[0, 1, 1, 2, 2]` leading to a tie. This is precisely what I don't want! So if I'm committed to keeping `X_train` and `y_train` constant the best thing to do is skip `n_neighbors = 5` and instead consider `n_neighbors = 7`. That is simply because for the given `X_train` and `y_Train` above, I can get a single most common value from the labels `[0, 1, 1, 2, 2, 2, 2]`.
 
-Puttig the above discussion altogether, for our `X_train` and `y_train`, the predicted label, `y_test` will vary for different values of `n_neighbors`. So our updated `predict()` test will look like,
+Putting the above discussion altogether, for our `X_train` and `y_train`, the predicted label, `y_test` will vary for different values of `n_neighbors`. So our updated `predict()` test will look like,
 
 {% highlight python %}
 # test.py
@@ -355,7 +351,7 @@ def __vote(self, distances):
     return Counter(x[0] for x in distances[:self.n_neighbors]).most_common(1)[0][0]
 {% endhighlight %}
 
-The full code can be found [here](https://gist.github.com/tpgmartin/a49843b3f56c8c4e48574f84deda9d2e)
+The full code can be found [here](https://gist.github.com/tpgmartin/a49843b3f56c8c4e48574f84deda9d2e).
 
 ## Evaluation
 
