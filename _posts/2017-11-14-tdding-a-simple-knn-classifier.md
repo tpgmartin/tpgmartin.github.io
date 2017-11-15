@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: 'TDDing a Simple KNN Classifier'
 categories: ['machine learning', 'tdd']
-tags: ['machine learning', 'knn', 'tdd', 'from scratcgh']
+tags: ['machine learning', 'knn', 'tdd', 'from scratch']
 permalink: 'tdding-a-simple-knn-classifier'
 fullview: true
  -
