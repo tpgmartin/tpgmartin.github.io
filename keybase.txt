@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/tpgmartin
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://tpgmartin.com
+  * I am tpgmartin (https://keybase.io/tpgmartin) on keybase.
+  * I have a public key with fingerprint CF18 67A4 E835 30AE B77E  A373 02C9 9A77 4754 85B0
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01201bd227a88fa4e5aafb1f84b5c0436e2552958c4fd0e458195865aa731febdbd50a",
+      "fingerprint": "cf1867a4e83530aeb77ea37302c99a77475485b0",
+      "host": "keybase.io",
+      "key_id": "02c99a77475485b0",
+      "kid": "0101e365aa23de3543e0c7e267c1805b3966b02d8f499c204b866727d9b682c95fb90a",
+      "uid": "118f8439d030eb08b343595dd5c08719",
+      "username": "tpgmartin"
+    },
+    "service": {
+      "hostname": "tpgmartin.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1511841590,
+  "expire_in": 157680000,
+  "prev": "7f3a7a1ddaaee213dc51b65f1c520c54664660a35fb117ffa0e1a11d360bc622",
+  "seqno": 19,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMNuAnicZZJ7UFRVHMd3KSpQcUHUIBK8COSwMvfc90WaJAdtTKYhXDVdWu7jXLgg
+u8vusiDMshNgUIhMRjwHNIGZ0CnBSUNKBGJMARkrHomTONBQNDL2cGWKHDtL+U+d
+OTNnzjnf7+d8f785g6ue0Phrfa415u/cc6RTO9zfkKc5EDbNFGGiRT6MxRdh2XB5
+gYdkaHeYslUZi8dwQOBAlAmCFThOEShIC4IiAoWjRFrCKZKBBE0TPM1JlCLjkKI5
+gDYMUrEkUKAoizKNC5geU1RzBrRZbarZgbCSAjiGRTiOpElcgCLLQoFkSZyQeF5g
+WYqlKY4WcWTMtNi9DhROFOwwTrWgM7Qx/RPv//rHuXEASW8OgpQhSVMkxCUWEgwr
+AQ6nRZJnGBEnZE6heF4icErkGIYlWJkXGQ5BaUXkl3PnLeMA4FDJJC/jJA5FnBNJ
+iqR5WpZREzgW8F6hHdrMQg5Eaoc1I0ewOVQz5tJj6NipStDbWW8p/5XESZYc5Lba
+LA6LZDmErjIdDmu81+k4bPVK86Fo+hdiElWzjBqJDE5os6sWMxYPkFJyqF4qoFFO
+CtA8rsdggVW1QZPqVdAsw+FoeJ+BToRkFVJgBSDLggAhAUhZooHI0AqQaAKXaIph
+0MQFEnUBAFZRBBwCAQCZZHBRYggC85aVa7YgNo9yChmIaVczzIIjzwYx10C/8UmN
+1l/zlK+P94dp/P10j//d4IBOc2xF95Fb63Ztve7rvjD9dqevoaWk7oOI2S9Oa6S0
+E551K5s3LnaM/hLTrh8/VZ/4UdmaqG8mdiYlNlfO3guqG6/oSkuJHVkd0zfsmdGW
+jDw31Bt0JVgHbv/cM93WHH/1xmRMZ8+wdPD52TA2J35oZrEs2o9fm/7gV/HOe2OP
+ImvHynvKz5Rnfr/ffsNaW5kVELaFWuilDdSDkMKlfdL1wIKSPwOGyeK6FHOZLshV
+m79tcfuGnlb3lE7wSxqg1l8hM/UXsI1H241rXDU/vFPz8gb9WF9ibvClhpaXqj1J
+haEKbDn5rGUpvPUcmdxfzIa8OrNpqbTNnTRgbLw4fT814uGH3+47m3UruoCdiw3Y
++/vU8YmAhVBzZeCowfhTF+a8/PT66pVtcX9sWxv7zMiPVVLCW+H5x3ctxEW9qT/f
+EGXM4m6mV8unsN9Cr2nPvRgx3lTa4TM3M7Wb9PFdCnHoKrcfC9Vf6vanIqms+qIV
+f4WHqwZuPs8a/YLgvrx/8t6O9t7F1sCvboOPYw8O7Z0gAgYPGPXZTp+0HbUXU0s/
+aW7qf//Rpt6Hm+tHC080Erb5rffnLKcnEj5rMlRE7BmPSu3+rmJV4ddlu5On3j0p
+3nW3GbZwNSldZ5hX3qhKPj/2uSf4rif95qevOVzNm/vc8/5a19lJ59XXO6ZzEyK/
+1Jsajq72FN8x5lb9DT4AuSA=
+=p2kv
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tpgmartin
+
+==================================================================
