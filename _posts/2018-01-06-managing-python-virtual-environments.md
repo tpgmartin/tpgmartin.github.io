@@ -11,13 +11,13 @@ fullview: true
 
 Having gotten use to using Anaconda and [Conda](https://conda.io/docs/index.html) to create and manage Python projects, I recently found myself in the position of wanting the same degree of dependency management for different projects without the need of installing additional software. Luckily enough, Python 3.3+ supports virtual environments out of the box albeit in a very stripped-down forn. This short post is just to demonstrate how to use this neat tool - things that I have been consistently forgetting! Some of these steps are specific to the OS and shell that I use: macOS and ZSH. YMMV.
 
-Assuming your version of Python supports virtual environments, you can create a new virtual environment with,
+Assuming your version of Python supports virtual environments, you can create a new virtual environment in your terminal with,
 
 {% highlight bash %}
 python -m venv my-virtual-environment
 {% endhighlight %}
 
-Which will create all the dependencies for the new virtual environment in the current working directory. You can also specify a path to your new virtual environment as well. For the purpose of development, it's easier to activate a virtual environment to save you from consistently specifying the environment's full path during development. To activate the virtual environment use,
+which will create all the dependencies for the new virtual environment in the current working directory. You can also specify a path to your new virtual environment as well. For the purpose of development, it's easier to activate a virtual environment to save you from consistently specifying the environment's full path during development. To activate the virtual environment use,
 
 {% highlight bash %}
 source my-virtual-environment/bin/activate
