@@ -40,7 +40,7 @@ $$
     sim(count(w,q),count(w,d))=\sum_{i=1}^{N} x_iy_i
 $$
 
-where in this case `x,y\geq0`. The rest of this blog, we will adjust `count(w,d)` to be able to produce more meaningful rankings.
+where in this case `x,y>=0`. The rest of this blog, we will adjust `count(w,d)` to be able to produce more meaningful rankings.
 
 ## Inverse Document Frequency
 
@@ -60,7 +60,7 @@ $$
     TF(w,d)=\frac{(k+1)count(w,d)}{count(w,d)+k}
 $$
 
-for some parameter `k\geq0`. Unlike a simple logarithmic function, `TF(w,d)` above is bounded above by `k+1`. This is important to prevent any one term from dominating query results: a single term cannot spam query responses.
+for some parameter `k>=0`. Unlike a simple logarithmic function, `TF(w,d)` above is bounded above by `k+1`. This is important to prevent any one term from dominating query results: a single term cannot spam query responses.
 
 ## Document Length Normalisation
 
