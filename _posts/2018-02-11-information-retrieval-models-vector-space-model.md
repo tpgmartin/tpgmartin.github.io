@@ -9,9 +9,9 @@ fullview: true
  -
 ---
 
-In this and the following blog post I want to provide a very high-level overview of how an information retrieval model works. These models are designed to be able to find the best match to some query text from a corpus of text documents, by ranking each document by some quantitative measure of relevance. For instance, when I use a search engine, it will try to return documents that are considered most relevant for my current query. Common between all such information retrieval models, is that they assume a "bag-of-words" representation of text: any text sample is reducible to the set of words occurring in the text without regard to the grammar or word order. This also means that the query can be broken down into a linear combination of individual query words.
+In this and the following blog post I want to provide a very high-level overview of how information retrieval models work. These models are designed to be able to find the best match to some query text from a corpus of text documents, by ranking each document by some quantitative measure of relevance. For instance, when I use a search engine, it will try to return documents that are considered most relevant for my current query. Common between all such information retrieval models, is that they assume a "bag-of-words" representation of text: any text sample is reducible to the set of words occurring in the text without regard to the grammar or word order. This also means that the query text can be broken down into a linear combination of individual query words.
 
-This particular post will discuss the vector space model (VSM) framework for interpreting queries, documents, and the similarity between them. Working from a very basic understanding, we will see how we can achieve a ranking function very close to the state-of-art [Okapi BM25 retrieval model](https://en.wikipedia.org/wiki/Okapi_BM25) by adding assumptions to our ranking function. The next post will look at probabilistic retrieval models, comparing them with VSM.
+This particular post will discuss the vector space model (VSM) framework for interpreting queries, documents, and the similarity between them. Working from a very basic understanding, we will see how we can achieve a ranking function equivalent to the state-of-art [Okapi BM25 retrieval model](https://en.wikipedia.org/wiki/Okapi_BM25) by adding assumptions to our initial similarity function. The next post will look at probabilistic retrieval models, comparing them with VSM.
 
 Much of this material came from my reading of ["Text Data Management and Analysis"](http://www.morganclaypoolpublishers.com/catalog_Orig/product_info.php?products_id=954) by ChengXiang Zhai and Sean Massung.
 
@@ -24,7 +24,7 @@ $$
     d=\left(y_1,...,y_N\right)
 $$
 
- Given this representation, we can then determine that the similarity is given by the "closeness" between two vectors. In 2D, [it is easy to show](https://en.wikipedia.org/wiki/Vector_space_model#/media/File:Vector_space_model.jpg) that the more similar query and document vectors have the smaller angle between them. More generally, we use the dot product operator, which becomes large and positive for near identical query and document vectors, and approaches 0 where the two vectors are completely different. The dot product is then just the sum over product
+ Given this representation, we can then determine that the similarity is given by the "closeness" between two vectors. In 2D, [it is easy to show](https://en.wikipedia.org/wiki/Vector_space_model#/media/File:Vector_space_model.jpg) that the more similar query and document vectors have the smaller angle between them. More generally, we use the dot product operator, which becomes large and positive for near identical query and document vectors, and approaches 0 where the two vectors are completely different. The dot product is then just the sum over product,
 
 $$
     sim(q,d)=q \cdot d=\sum_{i=1}^{N} x_iy_i
@@ -34,13 +34,13 @@ for query and document vectors as defined above.
 
 ## Term Frequency
 
-What if we were to take into account the frequency with which a particular word occurred in a given document? This is the term frequency (TF). TF should give us a better sense of the relevance of a document in relation to a query. In doing this, we modify our vectors to include the frequency of each word in the vector, $count(w,q)$, $count(w,d)$ for the query and document vectors respectively. The equation for similarity above then becomes
+What if we were to take into account the frequency with which a particular word occurred in a given document? This is the term frequency (TF). TF should give us a better sense of the relevance of a document in relation to a query, as it is likely a more relevant document will contain a query term more frequently. In doing this, we modify our vectors to include the frequency of each word in the vector, `count(w,q)`, `count(w,d)` for the query and document vectors respectively. The equation for similarity above then becomes
 
 $$
     sim(count(w,q),count(w,d))=\sum_{i=1}^{N} x_iy_i
 $$
 
-where in this case $x,y\geq0$. The rest of this blog, we will adjust $count(w,d)$ to be able to produce more meaningful rankings.
+where in this case `x,y\geq0`. The rest of this blog, we will adjust `count(w,d)` to be able to produce more meaningful rankings.
 
 ## Inverse Document Frequency
 
@@ -50,19 +50,19 @@ $$
     IDF(w)=\log\frac{M+1}{df(w)}
 $$
 
-where $M$ is the total number of documents in the collection, $df(w)$ is "document frequency" the number of documents that contain the given term, $w$. The $1$ in the numerator is just to prevent $IDF(w)$ reducing to zero in as $df(w)$ approached $M$.
+where `M` is the total number of documents in the collection, `df(w)` is "document frequency" the number of documents that contain the given term, `w`. The `1` in the numerator is just to prevent `IDF(w)` reducing to zero in as `df(w)` approached `M`.
 
 ## TF Transformation
 
-Similar to IDF, TF transformation penalises commonly occurring words. However, in this case, this penalty applies to words found in the target document only. As before, the presence of a given query term in a document is less relevant the more frequent it occurs in that document. This is often given by taking the logarithm of frequency with which a word query term occurs in a document. This is simply because logarithmic growth is very slow. The most effective transformation that is commonly used is known as BM25 TF, where we replace our naive $count(w,d)$ with $TF(w,d)$, given by the following equation,
+Similar to IDF, TF transformation penalises commonly occurring words. However, in this case, this penalty applies to words found in the target document only. As before, the presence of a given query term in a document is less relevant the more frequent it occurs in that document. This is often given by taking the logarithm of frequency with which a word query term occurs in a document. This is simply because logarithmic growth is very slow. The most effective transformation that is commonly used is known as BM25 TF, where we replace our naive `count(w,d)` with `TF(w,d)`, given by the following equation,
 
 $$
-    TF(w,d)=\frac{(k+1)*count(w,d)}{count(w,d)+k}
+    TF(w,d)=\frac{(k+1)count(w,d)}{count(w,d)+k}
 $$
 
-for some parameter $k\geq0$. Unlike a simple logarithmic function, $TF(w,d)$ above is bounded above by $k+1$. This is important to prevent any one term from dominating query results: a term cannot spam query responses.
+for some parameter `k\geq0`. Unlike a simple logarithmic function, `TF(w,d)` above is bounded above by `k+1`. This is important to prevent any one term from dominating query results: a single term cannot spam query responses.
 
-## Document Length Normalization
+## Document Length Normalisation
 
 Finally, we want our similarity rankings to be able to take into account total document length. This is important to consider as a longer document is more likely to match a query - there's simply more text that could match the query text. An effective approach is to use pivoted length normalisation, which both penalises documents that are longer than the average document length, and rewards documents that are shorter. This variable DLN is given as,
 
@@ -70,14 +70,14 @@ $$
     DLN=1-b+b\frac{|d|}{avdl}
 $$
 
-where, $|d|$ is the current document length, $avdl$ is the average document length in the collection, and $b$ a non-zero parameter between the values of zero and one.
+where, `|d|` is the current document length, `avdl` is the average document length in the collection, and `b` a non-zero parameter between the values of zero and one.
 
 ## Wrap-up
 
 Putting all of the above components together we get the following ranking function,
 
 $$
-    f(q,d)=\sum_w count(w,q)*\frac{(k+1)*count(w,d)}{count(w,d) + k\left(1-b+b\frac{|d|}{avdl}\right)}*\log\frac{M+1}{df(w)}
+    f(q,d)=\sum_w count(w,q)\frac{(k+1)count(w,d)}{count(w,d) + k\left(1-b+b\frac{|d|}{avdl}\right)}\log\frac{M+1}{df(w)}
 $$
 
 which is in fact the ranking function for the Okapi BM25 ranking algorithm. Moving left to right we have,
