@@ -11,7 +11,7 @@ fullview: true
 
 In this and the following blog post I want to provide a very high-level overview of how information retrieval models work. These models are designed to be able to find the best match to some query text from a corpus of text documents, by ranking each document by some quantitative measure of relevance. For instance, when I use a search engine, it will try to return documents that are considered most relevant for my current query. Common between all such information retrieval models, is that they assume a "bag-of-words" representation of text: any text sample is reducible to the set of words occurring in the text without regard to the grammar or word order. This also means that the query text can be broken down into a linear combination of individual query words.
 
-This particular post will discuss the vector space model (VSM) framework for interpreting queries, documents, and the similarity between them. Working from a very basic understanding, we will see how we can achieve a ranking function equivalent to the state-of-art [Okapi BM25 retrieval model](https://en.wikipedia.org/wiki/Okapi_BM25) by adding assumptions to our initial similarity function. The next post will look at probabilistic retrieval models, comparing them with VSM.
+This particular post will discuss the vector space model (VSM) framework for interpreting queries, documents, and the similarity between them. Working from a very basic understanding, we will see how we can achieve a ranking function equivalent to the state-of-art pivoted length normalisation by adding assumptions to our initial similarity function. The next post will look at probabilistic retrieval models, comparing them with VSM.
 
 Much of this material came from my reading of ["Text Data Management and Analysis"](http://www.morganclaypoolpublishers.com/catalog_Orig/product_info.php?products_id=954) by ChengXiang Zhai and Sean Massung.
 
@@ -40,7 +40,7 @@ $$
     sim(count(w,q),count(w,d))=\sum_{i=1}^{N} x_iy_i
 $$
 
-where in this case `x,y>=0`. The rest of this blog, we will adjust `count(w,d)` to be able to produce more meaningful rankings.
+where in this case `x,y>=0`. The rest of this blog, we will adjust `count(w,d)` so as to be able to produce more meaningful rankings.
 
 ## Inverse Document Frequency
 
@@ -54,7 +54,13 @@ where `M` is the total number of documents in the collection, `df(w)` is "docume
 
 ## TF Transformation
 
-Similar to IDF, TF transformation penalises commonly occurring words. However, in this case, this penalty applies to words found in the target document only. As before, the presence of a given query term in a document is less relevant the more frequent it occurs in that document. This is often given by taking the logarithm of frequency with which a word query term occurs in a document. This is simply because logarithmic growth is very slow. The most effective transformation that is commonly used is known as BM25 TF, where we replace our naive `count(w,d)` with `TF(w,d)`, given by the following equation,
+Similar to IDF, TF transformation penalises commonly occurring words. However, in this case, this penalty applies to words found in the target document only. As before, the presence of a given query term in a document is less relevant the more frequent it occurs in that document. This is often given by taking the logarithm of frequency with which a word query term occurs in a document. This is simply because logarithmic growth is very slow. The TF transformation used for pivoted length normalisation replaces our naive `count(w,d)` with `TF(w,d)`, given by the following equation,
+
+$$
+    TF(w,d)=\ln\left(1+\ln\left(1+count(w,d)\right)\right)
+$$
+
+The most effective transformation that is commonly used is known as BM25 TF,
 
 $$
     TF(w,d)=\frac{(k+1)count(w,d)}{count(w,d)+k}
@@ -64,26 +70,26 @@ for some parameter `k>=0`. Unlike a simple logarithmic function, `TF(w,d)` above
 
 ## Document Length Normalisation
 
-Finally, we want our similarity rankings to be able to take into account total document length. This is important to consider as a longer document is more likely to match a query - there's simply more text that could match the query text. An effective approach is to use pivoted length normalisation, which both penalises documents that are longer than the average document length, and rewards documents that are shorter. This variable DLN is given as,
+Finally, we want our similarity rankings to be able to take into account total document length. This is important to consider as a longer document is more likely to match a query - there's simply more text that could match the query text. An effective approach is to use pivoted document length normalisation, which both penalises documents that are longer than the average document length, and rewards documents that are shorter. This variable DLN is given as,
 
 $$
     DLN=1-b+b\frac{|d|}{avdl}
 $$
 
-where, `|d|` is the current document length, `avdl` is the average document length in the collection, and `b` a non-zero parameter between the values of zero and one.
+where, `|d|` is the current document length, `avdl` is the average document length in the collection, and `b` a parameter between the values of zero and one, inclusive.
 
 ## Wrap-up
 
 Putting all of the above components together we get the following ranking function,
 
 $$
-    f(q,d)=\sum_w count(w,q)\frac{(k+1)count(w,d)}{count(w,d) + k\left(1-b+b\frac{|d|}{avdl}\right)}\log\frac{M+1}{df(w)}
+    f(q,d)=\sum_w count(w,q)\frac{\ln\left(1+\ln\left(1+count(w,d)\right)\right)}{\left(1-b+b\frac{|d|}{avdl}\right)}\log\frac{M+1}{df(w)}
 $$
 
-which is in fact the ranking function for the Okapi BM25 ranking algorithm. Moving left to right we have,
+which is in fact the ranking function for the pivoted length normalisation ranking algorithm. Moving left to right we have,
 
 * The term frequency for the query
-* The term frequency for the document after applying the BM25 TF transformation
+* The term frequency for the document after applying the TF transformation
 * The pivoted length normalisation
 * The IDF
 
