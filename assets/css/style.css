@@ -293,7 +293,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap customisation */
 .pager {
-  margin: 4rem 0 auto;
+  margin: 0 auto;
   padding: 0 1rem;
   max-width: 48em; }
 
