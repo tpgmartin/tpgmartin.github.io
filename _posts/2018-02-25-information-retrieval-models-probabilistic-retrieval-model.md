@@ -29,7 +29,7 @@ $$
 
 The rank of a set of documents is then given by these calculated probabilities.
 
-In the general case, rather than have a set of generated query and document terms, we approximate the probability using what is known as the query likelihood retrieval model. This can be interpreted as the probability that a user who considers document `d` relevant would pose query `q`.
+In the general case, rather than have a set of generated query and document terms (using the above equation), we approximate the probability using what is known as the query likelihood retrieval model. This can be interpreted as the probability that a user who considers document `d` relevant, would pose query `q`, given by the following equation.
 
 $$
     p\left(q|d,R=1\right)
@@ -40,12 +40,12 @@ $$
 The relevance of a query is given by the probability given above. To calculate the probability of a query, we assume that query terms are independently sampled from a given document. This assumption of independence means that the total calculated probability for a query is the product of the portability of each query term,
 
 $$
-    p\left(q|d\right) = \frac{i}{count\left|d\right|}*\frac{j}{count\left|d\right|}
+    p\left(q|d\right) = \frac{i}{\left|d\right|}*\frac{j}{\left|d\right|}
 $$
 
-for query terms `i`, `j`. This is all well and good, until we realise that the query terms might not be found in an otherwise relevant document. In other words we could end up with `p(q|d)=0` even though the document is considered relevant.
+for query terms `i`, `j`, in document `d`. This is all well and good, until we realise that the query terms might not be found in an otherwise relevant document. In other words we could end up with `p(q|d)=0` even though the document is considered relevant by the user.
 
-Instead of assuming the user chooses query terms from the document, instead assume the user chooses from a much large corpus, a "document language model". This doesn't change anything with our expression for the probability, `p(q|d)`, but does fundamentally change the underlying probabilities we will use for each word: we shouldn't find ourselves discounting otherwise relevant documents.
+Instead of assuming the user chooses query terms from the document, we should assume the user chooses from a much large corpus, a "document language model". This doesn't change anything with our expression for the probability, `p(q|d)`, but does fundamentally change the underlying probabilities we will use for each word: we shouldn't find ourselves discounting otherwise relevant documents.
 
 It's also important at this stage to note that the actual relevance scoring function we will be working towards will be the logarithm of the query likelihood, 
 
@@ -55,7 +55,7 @@ $$
 
 ## Document Language Model Smoothing
 
-With the expression for the score, above, we now need to estimate the document language model, that is the terms `p(w|d)`. Importantly we want to assign a nonzero probability to query words not found in document. This process of smoothing involves reducing the probability of seen query words and increasing the probability of unseen query words - as the sum of probabilities must equal one. This means that the probability of a word in a given document is proportional to either the probability of the word in the document if it is found in the document,
+With the expression for the score above, we now need to estimate the document language model, that is the terms `p(w|d)`. Importantly, we want to assign a nonzero probability to query words not found in document. This process of smoothing involves reducing the probability of seen query words and increasing the probability of unseen query words - as the sum of probabilities must equal one. To do this we say that the probability of a word in a given query is proportional to either the probability of the word in the document if it is found in the document,
 
 $$
     p\left(w|d\right) = p_{seen}\left(w|d\right)
@@ -76,12 +76,12 @@ $$
 "Approximately equal", because the above equation omits a sum over the probabilities of words not found in the document - this is irrelevant for ranking purposes. This is where things get interesting. As promised, the form of the equation gives us many of features we simply assumed for the VSM ranking function,
 
 * The numerator of the left hand expression effectively acts as the TF weighting
-* The denominator as the IDF weighting i.e. the more frequent the term `w` is in `C`, the more it is discounted to the final rank
+* The denominator is the IDF weighting i.e. the more frequent the term `w` is in `C`, the more it is discounted to the final rank
 * The right hand side term is effectively equivalent to document length normalisation: the longer the document, the smaller this term as smoothing is less important.
 
 ## Jelinek-Mercer smoothing
 
-A specific example of smoothing is linear interpolation with a constant mixing coefficient or Jelinek-Mercer smoothing. In this model, we use a single coefficient to determine what non-zero probability to apply to a query word not found in a given document.
+A specific example of smoothing is linear interpolation with a constant mixing coefficient or Jelinek-Mercer smoothing. In this model, we use a single coefficient to determine what non-zero probability to apply to a query word not found in a given document. Applied to all query terms, this gives `p(w|d)` as a weighted sum of the probability of a word in the given document and the probability of the word in corpus `C`.
 
 $$
     p\left(w|d\right) = \left(1-\lambda\right)\frac{count\left(w,d\right)}{\left|d\right|}+\lambda p\left(w|C\right)
