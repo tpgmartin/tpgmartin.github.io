@@ -18,6 +18,8 @@ Syntactic: relating to the spelling/structure of a word e.g. plural vs singular
 
 We will cover the fundamental concepts behind it, how it works, and some competing algorithms.
 
+The reading for this blog post came from a combination of ["Natural Language Processing in Action"](https://www.manning.com/books/natural-language-processing-in-action) and the original research papers by Tomas Mikolov et al.
+
 ## Fundamentals
 
 The Word2vec model continues an established tradition of using neural networks to establish a language model. Word2vec itself is a fairly simple recurrent neural network made of,
@@ -45,7 +47,7 @@ Take the following sentence,
 
 To generate training data we imagine having a small window that move across the document words. For instance, if this window is of five words width, we only consider samples of five words at a time (in the order they appear in the original document).
 
-In the skip-gram approach, we are trying to predict the surrounding four words for a given input word - the word in the middle of our window. "Skip-gram" because we a creating n-grams that skip over words in the document e.g. want to find relationship between "The" for input "brown" ignoring "quick". In the table headings used, w_t refers to the input word, and e.g. w_t-2 is the word two places before the input.
+In the skip-gram approach, we are trying to predict the surrounding four words for a given input word - the word in the middle of our window. "Skip-gram" because we a creating n-grams that skip over words in the document e.g. want to find relationship between "The" for input "brown" ignoring "quick". The table below demonstrates what this would look like for the example sentence above. In the table headings used, w_t refers to the input word, and e.g. w_t-2 is the word two places before the input.
 
 | Input Word w_t | Expected Output w_t-2 | Expected Output w_t-1 | Expected Output w_t+1 | Expected Output w_t+2 |
 | -------------- | --------------------- | --------------------- | --------------------- | --------------------- |
@@ -53,7 +55,7 @@ In the skip-gram approach, we are trying to predict the surrounding four words f
 | quick | | The | brown | fox |
 | brown | The | quick | fox | jumps |
 
-Using the network described above, we want to find the output vector of word probabilities for a given input word. This proceeds as a supervised learning task. Given the one-hot encoding of words in the corpus, each row in the weights matrix (from input to hidden layer) of our neural network is trained to represent the semantic meaning of individual words. That is, semantically similar words will have vector representations - they were originally surrounded by similar words. 
+The skip-gram approach can be viewed as a kind of "flipped" version of CBOW approach, and vice versa. Instead of trying the predict the surrounding words for a given input word, we are trying to find the target word for the set of surrounding words. This approach is termed "continuous" bag of words, as we can imagine finding a new bag of words for a given target word as we slide the window along our document. The table below demonstrates what this would look like for the example sentence above, with the same notation as the skip-gram example.
 
 | Input Word w_t-2 | Input Word w_t-1 | Input Word w_t+1 | Input Word w_t+2 | Expected Output w_t |
 | ---------------- | ---------------- | ---------------- | ---------------- | ------------------- |
@@ -61,7 +63,8 @@ Using the network described above, we want to find the output vector of word pro
 |  | The | brown | fox | quick |
 | The | quick | fox | jumps | brown |
 
-The skip-gram approach can be viewed as a kind of "flipped" version of CBOW approach, and vice versa. Instead of trying the predict the surrounding words for a given input word, we are trying to find the target word for the set of surrounding words. This approach is termed "continuous" bag of words, as we can imagine finding a new bag of words for a given target word as we slide the window along our document.
+
+Using the network described above, we want to find the output vector of word probabilities for a given input word. This proceeds as a supervised learning task. Given the one-hot encoding of words in the corpus, each row in the weights matrix (from input to hidden layer) of our neural network is trained to represent the semantic meaning of individual words. That is, semantically similar words will have vector representations - they were originally surrounded by similar words. 
 
 When would you choose one approach over the other? The skip-gram approach can have superior performance over CBOW for a small corpus or with rare terms. This is because skip-gram generates more examples for a given word due to the network structure. On the other hand CBOW is faster to train and can produce higher accuracies for more frequent words.
 
