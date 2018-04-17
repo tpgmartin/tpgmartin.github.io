@@ -13,9 +13,8 @@ If you’ve read any of my previous blog posts on [information retrieval models]
 
 In this blog post we will look at one of the most popular and well-known word embedding algorithms, Word2vec. Using a word embedding such as that created by the Word2vec algorithm we can learn the semantic and syntactic relationship between words in our document or set of documents (termed "corpus"). Where I would explain these terms as,
 
-Semantic: relating the meaning of the word
-
-Syntactic: relating to the spelling/structure of a word e.g. plural vs singular
+* Semantic: relating the meaning of the word
+* Syntactic: relating to the spelling/structure of a word e.g. plural vs singular
 
 We will cover the fundamental concepts behind it, how it works, and some competing algorithms.
 
@@ -33,8 +32,8 @@ The actual output value for a given run is taken to be word corresponding to the
 
 A big part of Word2vec is the ability to process the relationship between words, as learned by the word-embedding, using simple linear algebra - so-called "vector oriented reasoning". Applicable to  both the semantic and syntactic relationship between words, this proceeds by way of analogy,
 
-Semantic: vec(king) - vec(man) + vec(woman) = vec(queen) i.e. "woman" is to "queen", as "man" is to "king"
-Syntactic: vec(apple) - vec(apples) ~= vec(banana) - vec(bananas) i.e. relate singular and plural forms
+* Semantic: vec(king) - vec(man) + vec(woman) = vec(queen) i.e. "woman" is to "queen", as "man" is to "king"
+* Syntactic: vec(apple) - vec(apples) ~= vec(banana) - vec(bananas) i.e. relate singular and plural forms
 
 Where e.g. vec(king) is the word vector embedding given by dot product between input word vectors and weights matrix.
 
