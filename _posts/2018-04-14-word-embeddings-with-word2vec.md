@@ -14,6 +14,7 @@ If you’ve read any of my previous blog posts on [information retrieval models]
 In this blog post we will look at one of the most popular and well-known word embedding algorithms, Word2vec. Using a word embedding such as that created by the Word2vec algorithm we can learn the semantic and syntactic relationship between words in our document or set of documents (termed "corpus"). Where I would explain these terms as,
 
 Semantic: relating the meaning of the word
+
 Syntactic: relating to the spelling/structure of a word e.g. plural vs singular
 
 We will cover the fundamental concepts behind it, how it works, and some competing algorithms.
