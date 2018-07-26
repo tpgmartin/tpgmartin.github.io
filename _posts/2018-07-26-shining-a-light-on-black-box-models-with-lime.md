@@ -33,7 +33,7 @@ The gold-standard for explainable models is something which is linear and monoto
 * Linear: a model where the expected output is just a weighted sum of inputs, possible with a constant additive term,
 
 $$
-    \sum_{i\in n} x_i + c.
+    f(x) = \sum_{i\in n} x_i + c.
 $$
 
 * Monotonic: for instance in the case of a monotonically increasing function, the output only increases with increasing input values,
