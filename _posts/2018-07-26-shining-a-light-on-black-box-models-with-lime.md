@@ -53,7 +53,7 @@ In order to find these local explanations, LIME proceeds using the following alg
 5. Fit a simple model to the permuted data, explaining the complex model outcome with m features from the permuted data weighted by its similarity to the original observation .
 6. Use the resulting feature weights to explain local behaviour.
 
-(The above steps are taken from the article ("Visualizing ML Models with LIME")[http://uc-r.github.io/lime] by "UC Business Analytics R Programming Guide".)
+(The above steps are taken from the article ["Visualizing ML Models with LIME"](http://uc-r.github.io/lime) by "UC Business Analytics R Programming Guide".)
 
 The main benefit of this approach is its robustness: local explanations will still be locally faithful even for globally nonlinear models. The output of this algorithm is what is referred to as an "explanation" matrix, which has rows equal to the number of instances sampled, and columns for each feature. At this stage, the matrix produced is sufficient to provide local explanations in whatever form is deemed appropriate. In the next step, this matrix is used to characterise the global behaviour of a model.
 
