@@ -30,7 +30,8 @@ author:
   bio: Developer, London, UK
   email_md5: 62be213366aa2bdd663069b3a0cfaf72
 
-gems:
+plugins:
+  - jekyll-paginate
   - jekyll-sitemap
 
 sitemap:
