@@ -4,7 +4,7 @@ comments: true
 title: Hello World!
 categories: [general, introduction]
 tags: [introduction]
-permalink: hello-world
+permalink: /blog/hello-world
 fullview: true
 ---
 

@@ -39,7 +39,7 @@ sitemap:
     exclude:
         - "/feed.xml"
     include_posts:
-        - "/index.html"
+        - "/blog.html"
     change_frequency_name: "change_frequency"
     priority_name: "priority"
 
@@ -49,6 +49,7 @@ bitly:
 
 rss_path: feed.xml
 cv_path: tom-martin-cv.pdf
+blog_path: blog
 about_path: about
 categories_path: categories
 tags_path: tags

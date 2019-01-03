@@ -4,7 +4,7 @@ comments: true
 title: "Creating a GitHub Repo from a CLI"
 categories: ['tutorial', 'general']
 tags: ['unix', 'github', 'command-line']
-permalink: "creating-a-github-repo-from-a-cli"
+permalink: "/blog/creating-a-github-repo-from-a-cli"
 fullview: true
  -
 ---

@@ -4,7 +4,7 @@ comments: true
 title: "Updates and Whatnot"
 categories: [general, update]
 tags: [update]
-permalink: "updates-and-whatnot"
+permalink: "/blog/updates-and-whatnot"
 fullview: true
  -
 ---
