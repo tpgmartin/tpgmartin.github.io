@@ -1,10 +1,10 @@
 ---
 layout: post
 comments: true
-title: 'Hierarchical/Multi-level Indexing'
+title: 'Hierarchical/Multi-level Indexing in Pandas'
 categories: ['data science']
 tags: ['reviews', 'pandas', 'indexing']
-permalink: 'hierarchical-multi-level-indexing'
+permalink: 'hierarchical-multi-level-indexing-in-pandas'
 fullview: true
  -
 ---
