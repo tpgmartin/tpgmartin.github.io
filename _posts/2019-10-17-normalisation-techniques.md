@@ -33,7 +33,7 @@ In this blog post, we will only consider transformation of numerical features. I
 This is simply mapping from the given numeric range of a feature to a standard range, typically between zero and one, inclusive. Achieve this by transforming using min-max scaling,
 
 $$
-    x'=\frac{x-x_min}{x_max-x_min}.
+    x'=\frac{x-x_{min}}{x_{max}-x_{min}}.
 $$
 
 This transformation is particularly appropriate if the upper and lower bounds of the data are known, with few or no outliers, and the data is uniformly distributed.
@@ -48,10 +48,10 @@ This is appropriate when the distribution of datapoints follow a [power law dist
 
 ## Z-Score
 
-Transform feature value in terms of the number of standard deviations away from the mean. The transformed distribution will have a mean of zero and standard deviation of one. It is desirable, but not necessary, that the feature values contain few outliers.
+Transform feature value in terms of the number of standard deviations away from the mean. The transformed distribution will have a mean of zero and standard deviation of one. It is desirable, but not necessary, that the feature values contain few outliers. The equation is as follows,
 
 $$
-    x'=\frac{x-\mu}{\sigma}
+    x'=\frac{x-\mu}{\sigma}.
 $$
 
 All the best,
